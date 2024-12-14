@@ -24,7 +24,7 @@ body { font-family: 'SF Pro Display', sans-serif; }
 }
 
 .style-4 {
-  @apply font-playfair-display font-bold text-60 leading-64 text-131313;
+  @apply font-font-sf-pro-display-black-italic  font-bold text-60 leading-64 text-131313;
 }
 
 .style-5 {

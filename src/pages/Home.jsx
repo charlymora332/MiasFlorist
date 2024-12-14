@@ -10,12 +10,33 @@ import p2i1 from "../assets/home/p2i1.png";
 import p2i2 from "../assets/home/p2i2.png";
 import { Link } from "react-router-dom";
 import SliderProductos from "../components/SliderProductos";
+
+import productosArray from "../assets/productos/productos";
+import reseniasArray from "../assets/productos/resenias";
+import tarjetasArray from "../assets/SliderTarjetas/imagenes";
+
+import Tarjetas from "../components/Tarjetas";
+
+import Productos from "../components/Productos";
+
+import SubTitulo from "../components/SubTitulo";
+
+import Resenia from "../components/Resenia";
+
+
+import SliderResenias from '../components/SliderResenias'
+ 
+
+import MetodosPago from '../components/MetodosPago'
+
+import Footer from '../components/Footer'
+
 function home() {
   return (
-    <div>
+    <div className="pt-36">
       <Header /> {/* Si deseas mostrar un encabezado en todas las páginas */}
       <div className="relative ">
-        <div className="h-[calc(100vh-144px)] ">
+        <div className="h-[calc(100vh)] ">
           <div className="relative z-10  pl-28  flex flex-col  justify-center  h-full ">
             <h1 className="style-4 size ">
               {" "}
@@ -34,7 +55,10 @@ function home() {
             <span className="flex flex-row">
               <Precio dolar={"99"} />
             </span>
+            <div className="w-56">
             <BtnOrange texto={"Shop now"} />
+            </div>
+ 
           </div>
 
           <div className="h-[calc(100vh-160px)] w-2/3 absolute top-0    z-1 bg-f5f5f5 right-0 rounded-l-[60px]">
@@ -46,19 +70,36 @@ function home() {
           </div>
         </div>
 
-        <div className="flex flex-row justify-center gap-8 h-64 w-screen my-16 mx-auto ">
+        <div className="flex flex-row justify-center gap-8 h-64 w-screen my-16 mx-auto mv:flex-col ">
           <img src={p1i1} alt="40% SALE" />
           <img src={p1i2} alt="Happy Thanksgiving" />
         </div>
-
-        <div>
-          <SliderProductos />
+        <SubTitulo antes={"Top"} despues={"sellers"} estilosPrinc={"gap-2"} />
+        <div className="mt-16">
+          <SliderProductos>
+            {productosArray.map((producto, index) => (
+              // <div
+              //   key={index}
+              //   className=" flex  justify-center items-end  z-50   pb-9"
+              // >
+              <Productos
+                key={index}
+                id={producto.id}
+                img={producto.img}
+                imgAlt={producto.imgAlt}
+                nombre={producto.nombre}
+                dolar={producto.dolar}
+                cent={producto.cent}
+                precioNormal={producto.precioNormal}
+                etiqueta={producto.etiqueta}
+              />
+              // </div>
+            ))}
+          </SliderProductos>
         </div>
-       <div className="relative w-full h-max">
- <div className="absolute -z-10 bg-f5f5f5 p-16 ml-[25%] rounded-l-2xl xl:m-0 h-full w-full">
+        <div className="relative w-full h-max mt-24">
+          <div className="absolute -z-10 bg-f5f5f5 p-16 ml-[25%] rounded-l-2xl xl:m-0 h-full w-full"></div>
 
- </div>
-      
           <div className="  w-full flex flex-col xl:flex-row gap-8 pl-20 xl:p-0 h-auto bg-transparent ">
             <div className=" relative w-1/2 flex flex-row h-72">
               <div className="relative h-full w-full ">
@@ -105,13 +146,146 @@ function home() {
                 </h5>
               </div>
             </div>
+          </div>
         </div>
+
+        <div className="relative flex flex-col gap-12 mt-16 pt">
+          <div className="absolute  right-0 h-full w-2/3 bg-f6dcdc rounded-l-[3.5rem] "></div>
+
+          <span className=" mt-8">
+            <SubTitulo antes={"Our "} despues={"categories"} />
+          </span>
+
+          <SliderProductos>
+            {tarjetasArray.map((producto, index) => (
+              <Tarjetas
+                img={producto.img}
+                imgAlt={producto.imgAlt}
+                texto={producto.texto}
+                titulo={producto.titulo}
+                key={index}
+              />
+            ))}
+          </SliderProductos>
         </div>
-        <h4 className="style-5 !text-3xl">
-          Top <b>sellers </b>
-        </h4>
+
+        <div className="relative flex flex-col gap-12 mt-4 pt">
+          <span className=" mt-8">
+            <SubTitulo antes={"Our "} despues={"best deals"} />
+          </span>
+
+          <SliderProductos>
+            {productosArray.map((producto, index) => (
+              // <div
+              //   key={index}
+              //   className=" flex  justify-center items-end  z-50   pb-9"
+              // >
+              <Productos
+                key={index}
+                id={producto.id}
+                img={producto.img}
+                imgAlt={producto.imgAlt}
+                nombre={producto.nombre}
+                dolar={producto.dolar}
+                cent={producto.cent}
+                precioNormal={producto.precioNormal}
+                etiqueta={producto.etiqueta}
+              />
+              // </div>
+            ))}
+          </SliderProductos>
+        </div>
+
+        <div className="relative w-full h-auto flex flex-row ">
+          <div className="absolute bg-f5f5f5 w-full h-full -z-10"></div>
+
+          <div className="flex flex-row w-full px-24 py-16 mv:flex-col ">
+            <div className="w-1/2">
+              <h1 className="style-4 -skew-x-12 !font-font-sf-pro-display-black-italic  !font-black !text-ffaa01 !text-7xl  ">
+                Happy
+              </h1>
+              <h6 className="text-606060 style-1 text-xs !font-normal mt-28 mb-10">
+                See the best decorations for this celebration
+              </h6>
+              <div className="w-56">
+                  <BtnOrange texto={"Shop now"} />  
+              </div>
+          
+            </div>
+
+            <div className="flex flex-row w-1/2">
+              {productosArray
+                .filter((producto, index) => index === 0 || index === 5) // Filtra la imagen 1 y la 5
+                .map((producto, index) => (
+                  <Productos
+                    key={index}
+                    id={"2"}
+                    img={producto.img}
+                    imgAlt={producto.imgAlt}
+                    nombre={producto.nombre}
+                    dolar={producto.dolar}
+                    cent={producto.cent}
+                    precioNormal={producto.precioNormal}
+                    etiqueta={producto.etiqueta}
+                  />
+                ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="relative flex flex-col gap-12 mt-4 pt">
+          <span className=" mt-8">
+            <SubTitulo antes={"Our "} despues={"best details"} />
+          </span>
+
+          <SliderProductos>
+            {productosArray.map((producto, index) => (
+              // <div
+              //   key={index}
+              //   className=" flex  justify-center items-end  z-50   pb-9"
+              // >
+              <Productos
+                key={index}
+                id={producto.id}
+                img={producto.img}
+                imgAlt={producto.imgAlt}
+                nombre={producto.nombre}
+                dolar={producto.dolar}
+                cent={producto.cent}
+                precioNormal={producto.precioNormal}
+                etiqueta={producto.etiqueta}
+              />
+              // </div>
+            ))}
+          </SliderProductos>
+        </div>
+
+        <div className="relative flex flex-col gap-12 py-16">
+       
+          <div className=" relative">
+            <div className="absolute h-[120%] w-4/5 bg-f5f5f5 right-0 rounded-l-[5rem] py-56 top-1/2 -translate-y-1/2"></div>
+
+            <SliderResenias/>
+
+          </div>
+        </div>
+
+        
       </div>
-      <div className="p-4">
+
+      <div className="w-full">
+         <MetodosPago/>
+      </div>
+      
+      <div className="w-full">
+         <Footer/>
+      </div>
+
+
+
+      {/* <SliderResenias/> */}
+      {/*  */}
+      {/* <div className="p-4">
         asdfasdfasdf{" "}
         <p className="style-1">
           Este es un párrafo con el estilo `style-1` aplicado.
@@ -129,7 +303,7 @@ function home() {
           Este es un párrafo con el estilo `style-5` aplicado.
         </p>{" "}
         <p> natalia esta vieja</p>
-      </div>
+      </div> */}
     </div>
   );
 }

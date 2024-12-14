@@ -1,10 +1,10 @@
 // images.js
-import img1 from './BF773-11KL_Rsd.png';
+import img1 from './Harvest-Roselandvasecc-2_640x_crop_center.png';
 import img2 from './Grupo -5.png';
 import img3 from './Grupo 9122.png';
 import img4 from './Grupo 9123.png';
 import img5 from './Grupo 9124.png';
-import img6 from './Harvest-Roselandvasecc-2_640x_crop_center.png';
+import img6 from './BF773-11KL_Rsd.png';
 import img7 from './HOL23_TheMulberry_DL_ARG_334_Web-(1).png';
 import img8 from './ramo-rosas-blancas-rosas.png';
 import img9 from './sieirfhek.png';
@@ -15,17 +15,18 @@ import img10 from './sku10951788.png';
 
 // Array de productos con toda la información
 const productos = [
-  {
-    id: 1,
-    img: img1,
-    imgRuta: './218757 BF773-11KL_Rsd.png', // Ruta de la imagen
-    imgAlt: "Floral arrangement Roses in Floral arrangement",
-    dolar: "99",
-    cent: "00",
-    nombre: "Floral bouquet of Pink Roses",
-    precioNormal: "239.00", // Esto será vacío si el valor es igual a dolar.cent
-    etiqueta: "New Arrival"
-  },
+    {
+        id: 1,
+        img: img1,
+        imgRuta: './218757 BF773-11KL_Rsd.png',
+        imgAlt: 'Thanksgiving rose decoration',
+        dolar: '89',
+        cent: '00',
+        nombre: 'Thanksgiving rose decoration',
+        precioNormal: '109,00',
+        etiqueta: '20% off'
+      },
+
   {
     id: 2,
     img: img2,
@@ -68,18 +69,18 @@ const productos = [
     cent: "00",
     nombre: "Harvest Roseland Vase",
     precioNormal: "79.00", // Igual al precio calculado
-    etiqueta: "Limited Edition"
+    etiqueta: "Limited Edition",
   },
   {
     id: 6,
     img: img6,
     imgRuta: './251239 Harvest-Roselandvasecc-2_640x_crop_center.png', // Ruta de la imagen
-    imgAlt: "Red Roses Bouquet",
-    dolar: "99",
+    imgAlt: "Thanksgiving Pumpkin Decoration",
+    dolar: "49",
     cent: "00",
-    nombre: "Red Roses Bouquet",
-    precioNormal: "", // No hay descuento
-    etiqueta: ""
+    nombre: "Thanksgiving Pumpkin Decoration", // Nombre actualizado
+    precioNormal: "109,00", // Precio original actualizado
+    etiqueta: "60% off", // Etiqueta de descuento
   },
   {
     id: 7,

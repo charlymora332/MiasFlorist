@@ -29,12 +29,19 @@ export default {
 
 
         "playfair-display": ["Playfair Display", "serif"],
+        "font-sf-pro-display-black-italic": ["SF Pro Display", "Black-italic"]
       },
       fontSize: { 16: "16px", 18: "18px", 20: "20px", 24: "24px", 48: "48px" , 60: "60px"},
       lineHeight: { 24: "24px", 32: "32px", 64: "64px" },
     
     fontWeight: {
       'ultra-bold': 1000, // Puedes añadir un peso más grueso, como 1000
+    },
+    screens: {
+      'mv': { max: '780px' }, // Breakpoint personalizado para dispositivos menores a 780px
+    },
+    boxShadow: {
+      'shadow-inferio': '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',
     },
   },
   },

@@ -12,10 +12,10 @@ function Productos({
 }) {
   console.log(imgAlt, cent);
   return (
-    <div className="relative h-[20rem] w-[16rem] border-solid rounded-2xl border-2 border-[#E4E4E4] overflow-hidden mx-auto">
+    <div className="relative bg-white z-0 h-[20rem] w-[16rem] border-solid rounded-2xl border-2 border-[#E4E4E4] overflow-hidden mx-auto">
       {etiqueta ? (
-        <div className="bg-ffaa01 absolute left-2 top-2 rounded-full w-max  cursor-pointer">
-          <h5 className="style-1 !text-xs !text-white  px-2 py-0.5 !font-extrabold -skew-x-12  ">
+        <div className="bg-ffaa01 absolute left-2 top-2 rounded-full w-max  cursor-pointer z-50">
+          <h5 className="style-1 !text-sm !text-white  px-2 py-0.5 !font-extrabold -skew-x-12  ">
             {etiqueta}
           </h5>
         </div>
@@ -23,13 +23,13 @@ function Productos({
       <div
         className={`${
           id % 2 == 0 ? "bg-f6dcdc " : "bg-f5f5f5"
-        } absolute -z-20 h-1/2 rounded-b-2xl w-full `}
+        } absolute z-[2] h-1/2 rounded-b-2xl w-full `}
       ></div>
-      <div className="w-full h-4/6  pt-4 ">
-        <img src={img} alt={imgAlt} className="h-full w-auto mx-auto" />
+      <div className="w-full h-4/6 relative">
+        <img src={img} alt={imgAlt} className="h-[95%] w-auto mx-auto bottom-0 absolute z-30 left-1/2 -translate-x-1/2" />
       </div>
       <div className=" h-2/6 flex flex-col justify-between">
-        <p className="style-5  !text-xl !font-extrabold">{nombre}</p>
+        <p className="style-5  !text-xl !font-extrabold text-center">{nombre}</p>
 
         <span className="flex flex-row gap-4  mb-4   !text-lg justify-center items-end text-center ">
           <Precio
@@ -41,9 +41,14 @@ function Productos({
           />
 
           {precioNormal ? (
-            <h5 className="style-1 !font-thin !text-xs !text-606060">
+            <span className="relative">
+               <h5 className="style-1 !font-thin !text-xs !text-606060 mx-1
+               before:absolute before:content-[''] before:w-full before:h-[1px] before:bg-606060 before:bottom-[2px] before:left-0 before:transform before:translate-y-[-8px]
+               ">
               ${precioNormal}
             </h5>
+            </span>
+           
           ) : null}
         </span>
       </div>

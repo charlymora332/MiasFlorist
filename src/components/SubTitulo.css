@@ -1,0 +1,60 @@
+/* Estilos generales para el contenedor */
+.titulo-con-bolitas {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    position: relative;
+  }
+  
+  /* Estilo para los spans (con inclinación) */
+  .titulo-con-bolitas span {
+    position: relative;
+    font-size: 2rem; /* Tamaño de la bolita */
+    color: #333; /* Color de la bolita (invisible, se maneja con ::before y ::after) */
+    margin: 0 1rem; /* Espaciado entre el texto y las bolitas */
+    display: inline-block;
+    transform-origin: center;
+  }
+  
+  /* El primer span se inclina hacia arriba a la izquierda */
+  .titulo-con-bolitas span:first-child {
+    transform: rotate(-20deg); /* Inclinación del primer span */
+  }
+  
+  /* El segundo span se inclina hacia abajo a la derecha */
+  .titulo-con-bolitas span:last-child {
+    transform: rotate(20deg); /* Inclinación del segundo span */
+  }
+  
+  /* Bolitas antes del texto */
+  .titulo-con-bolitas span::before {
+    content: '';
+    position: absolute;
+    top: -8px; /* Ajusta la posición vertical */
+    left: -18px; /* Ajusta la posición horizontal */
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: green; /* Color de la bolita */
+  }
+  
+  /* Bolitas después del texto */
+  .titulo-con-bolitas span::after {
+    content: '';
+    position: absolute;
+    top: -8px; /* Ajusta la posición vertical */
+    right: -18px; /* Ajusta la posición horizontal */
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: green; /* Color de la bolita */
+  }
+  
+  /* Estilo para el título */
+  .titulo-con-bolitas h4 {
+    font-size: 2.5rem; /* Tamaño del texto */
+    margin: 0; /* Eliminar márgenes */
+    padding: 0; /* Eliminar relleno */
+  }
+  

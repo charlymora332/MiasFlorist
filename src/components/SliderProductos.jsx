@@ -31,7 +31,7 @@ const FlechaAnterior = ({ onClick }) => {
   );
 };
 
-function SliderProductos({children}) {
+function SliderProductos({ children }) {
   const [activeIndex, setActiveIndex] = useState(0); // Estado para el índice activo
   const sliderRef = React.useRef(null); // Referencia al slider
   const [cantidadProductos, setCantidadProductos] = useState(1);
@@ -85,29 +85,16 @@ function SliderProductos({children}) {
     <div>
       {/* <Productos id={} img={} imgAlt={} nombre={}  dolar={} cent={} precioNormal={} /> */}
       <div className="relative w-full h-full mx-auto text-center ">
-        <div className="w-full items-center flex flex-row justify-between">
-          <FlechaAnterior onClick={() => sliderRef.current.slickPrev()} />
-          <div className="w-11/12 ">
-            <Slider {...configuracionSlider} ref={sliderRef}>
-              {productos.map((producto, index) => (
-                // <div
-                //   key={index}
-                //   className=" flex  justify-center items-end  z-50   pb-9"
-                // >
-                <Productos
-                  key={index}
-                  id={producto.id}
-                  img={producto.img}
-                  imgAlt={producto.imgAlt}
-                  nombre={producto.nombre}
-                  dolar={producto.dolar}
-                  cent={producto.cent}
-                  precioNormal={producto.precioNormal}
-                  etiqueta={producto.etiqueta}
-                />
-                // </div>
-              ))}
-            </Slider>
+        <div>
+          <div className="w-full items-center flex flex-row justify-between">
+            <FlechaAnterior onClick={() => sliderRef.current.slickPrev()} />
+            <div className="w-11/12 ">
+              <Slider {...configuracionSlider} ref={sliderRef}>
+                {children}
+              </Slider>
+            </div>
+            <FlechaSiguiente onClick={() => sliderRef.current.slickNext()} />
+            </div>
             <div className=" mx-auto">
               <ul className="relative  mx-auto flex flex-row w-max my-8 gap-2">
                 {productos.map((_, index) => (
@@ -121,14 +108,10 @@ function SliderProductos({children}) {
                 ))}
               </ul>
             </div>
-          </div>
-          <FlechaSiguiente onClick={() => sliderRef.current.slickNext()} />
+         
         </div>
 
-        <div className="absolute right-4 bottom-20">
-   
-        </div>
-
+        <div className="absolute right-4 bottom-20"></div>
       </div>
     </div>
   );

@@ -1,18 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logoMiasFlorist from "../assets/header/logoMiasFlorist.png";
+import logoMiasFlorist from "../assets/header/logoMiasFlorist.svg";
 import iconoTelefono from "../assets/header/iconoTelefono.png";
 import iconoDireccion from "../assets/header/iconoDireccion.png";
 import iconoCarrito from "../assets/header/iconoCarrito.png";
 import iconoBuscar from "../assets/header/iconoBuscar.png";
+import moduleName from "./TextoImg";
 function header() {
   return (
-    <header className="h-36  bg-white px-16">
+    <header className="h-36 w-full  bg-white px-16 pb-5 shadow-shadow-inferio fixed top-0 left-0 z-50 ">
       <div className="flex flex-row justify-between h-2/3 items-center pt-2">
         <div className="flex flex-row h-10 items-center ">
           <img src={iconoTelefono} alt="iconoTelefono" className="h-5" />
           <h6 className="style-5 !font-extrabold">+1(800)312 - 2121</h6>
         </div>
+
+      
+
+
 
         <div className="w-max h-full">
           <img
@@ -21,6 +26,7 @@ function header() {
             className="h-full mx-auto "
           />
         </div>
+
 
         <div className="flex flex-row h-10 items-start ">
           <img src={iconoDireccion} alt="icono Direccion" className="h-5" />
