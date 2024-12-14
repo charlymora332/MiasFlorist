@@ -20,11 +20,14 @@ function header() {
 
 
         <div className="w-max h-full">
-          <img
+          <Link to="/MiasFlorist" aria-label="Return home">
+           <img
             src={logoMiasFlorist}
             alt="logo Mias Florist"
             className="h-full mx-auto "
           />
+          </Link>
+         
         </div>
 
 
@@ -48,7 +51,7 @@ function header() {
           <Link to="" aria-label="About">
             About
           </Link>
-          <Link to="" aria-label="Contact">
+          <Link to="/MiasFlorist/Contact" aria-label="Contact">
             Contact
           </Link>
         </div>

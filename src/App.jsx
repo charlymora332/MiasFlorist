@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';  // Importa Bro
 import Header from './components/Header';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
-import Home from './pages/Home';
+import Home from './pages/Home'
 
 function App() {
   return (

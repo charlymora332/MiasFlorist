@@ -23,21 +23,22 @@ import SubTitulo from "../components/SubTitulo";
 
 import Resenia from "../components/Resenia";
 
+import SliderResenias from "../components/SliderResenias";
 
-import SliderResenias from '../components/SliderResenias'
- 
+import MetodosPago from "../components/MetodosPago";
 
-import MetodosPago from '../components/MetodosPago'
-
-import Footer from '../components/Footer'
+import Footer from "../components/Footer";
 
 function home() {
   return (
     <div className="pt-36">
       <Header /> {/* Si deseas mostrar un encabezado en todas las páginas */}
       <div className="relative ">
-        <div className="h-[calc(100vh)] ">
-          <div className="relative z-10  pl-28  flex flex-col  justify-center  h-full ">
+        <div className=" h-[calc(100vh_-_9rem)] mv:h-auto   ">
+          <div
+            className="relative z-10  pl-28  flex flex-col  justify-center  h-full 
+            mv:pl-10 mv:h-min"
+          >
             <h1 className="style-4 size ">
               {" "}
               Surprise your favorite
@@ -45,9 +46,10 @@ function home() {
               person{" "}
             </h1>
             <span className="flex flex-row my-8">
-              <h4 className="style-1  !text-f7527a !font-extrabold">New</h4>{" "}
               <h4 className="style-1 !font-light">
-                {" "}
+                <span className="style-1  !text-f7527a !font-extrabold">
+                  New
+                </span>{" "}
                 &nbsp; Rose arrangement with golden vase{" "}
               </h4>
             </span>
@@ -55,24 +57,37 @@ function home() {
             <span className="flex flex-row">
               <Precio dolar={"99"} />
             </span>
-            <div className="w-56">
-            <BtnOrange texto={"Shop now"} />
-            </div>
- 
-          </div>
-
-          <div className="h-[calc(100vh-160px)] w-2/3 absolute top-0    z-1 bg-f5f5f5 right-0 rounded-l-[60px]">
-            <div className="!z-30 absolute flex right-0 bottom-0 h-full w-2/3  ">
-              <SliderPrincipal />
+            <div className="w-56 mv:w-80">
+              <BtnOrange texto={"Shop now"} />
             </div>
 
-            <div className="absolute right-0 bottom-0 rounded-l-full z-20 w-5/6 h-1/3 bg-f6dcdc"></div>
+            <div
+              className="h-full w-2/3 absolute -z-10 top-0     bg-f5f5f5 right-0 rounded-l-[6rem]
+              mv:relative mv:w-full mv:h-full "
+            >
+              <div
+                className="!z-30 absolute flex right-0 bottom-0 h-full w-2/3 
+              mv:w-screen  mv:relative  "
+              >
+                <SliderPrincipal />
+              </div>
+
+              <div className="absolute right-0 bottom-0 h-1/4 w-2/3   mv:w-full mv:h-1/3  ">
+                <div className=" absolute top-1/2  h-10 w-5 rounded-full border-4 border-131313 pt-0.5 mv:hidden">
+                  <div className="bg-131313 w-2 h-2 rounded-full mx-auto"></div>
+                </div>
+                <div className="rounded-l-full z-50 w-full h-full bg-f6dcdc ml-6 mv:m-0"></div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div className="flex flex-row justify-center gap-8 h-64 w-screen my-16 mx-auto mv:flex-col ">
-          <img src={p1i1} alt="40% SALE" />
-          <img src={p1i2} alt="Happy Thanksgiving" />
+        <div className="flex flex-row justify-center gap-8 h-auto w-screen my-16 px-8 mx-auto object-contain  mv:flex-col ">
+          <img src={p1i1} alt="40% SALE" className="w-[50%] mv:w-full " />
+          <img
+            src={p1i2}
+            alt="Happy Thanksgiving"
+            className="w-[50%] mv:w-full "
+          />
         </div>
         <SubTitulo antes={"Top"} despues={"sellers"} estilosPrinc={"gap-2"} />
         <div className="mt-16">
@@ -106,10 +121,10 @@ function home() {
                 <img
                   src={p2i1}
                   alt="Map ubication"
-                  className="absolute h-[140%] -bottom-6  object-contain"
+                  className=" h-full -bottom-6  object-contain "
                 />
               </div>
-              <div className="absolute w-full xl:w-auto left-96 top-1/2 -translate-y-1/2">
+              <div className="absolute w-full xl:w-auto left-96 top-1/2 -translate-y-1/2  mv:-translate-x-2/3">
                 <h4 className="style-2 !text-2xl !text-f7527a font-light">
                   Flower delivery to:
                 </h4>
@@ -136,7 +151,7 @@ function home() {
                 />
               </div>
 
-              <div className="absolute w-full xl:w-auto left-[22rem] top-1/2 -translate-y-1/2">
+              <div className="absolute w-full xl:w-auto left-[22rem] top-1/2 -translate-y-1/2 mv:-translate-x-2/3">
                 <h4 className="style-2 !text-2xl !text-f7527a font-light">
                   Our schedule:
                 </h4>
@@ -208,9 +223,8 @@ function home() {
                 See the best decorations for this celebration
               </h6>
               <div className="w-56">
-                  <BtnOrange texto={"Shop now"} />  
+                <BtnOrange texto={"Shop now"} />
               </div>
-          
             </div>
 
             <div className="flex flex-row w-1/2">
@@ -261,28 +275,19 @@ function home() {
         </div>
 
         <div className="relative flex flex-col gap-12 py-16">
-       
           <div className=" relative">
             <div className="absolute h-[120%] w-4/5 bg-f5f5f5 right-0 rounded-l-[5rem] py-56 top-1/2 -translate-y-1/2"></div>
 
-            <SliderResenias/>
-
+            <SliderResenias />
           </div>
         </div>
-
-        
       </div>
-
       <div className="w-full">
-         <MetodosPago/>
+        <MetodosPago />
       </div>
-      
       <div className="w-full">
-         <Footer/>
+        <Footer />
       </div>
-
-
-
       {/* <SliderResenias/> */}
       {/*  */}
       {/* <div className="p-4">

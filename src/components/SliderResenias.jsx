@@ -81,7 +81,7 @@ const SliderPrincipal = () => {
         </div>
 
         <div className="w-10/12">
-          <Slider {...configuracionSlider} ref={sliderRef}>
+          <Slider {...configuracionSlider} ref={sliderRef} className="bg-red-50">
             {reseniasArray.map((resenia, index) => (
               <Resenia
                 id={resenia.id}

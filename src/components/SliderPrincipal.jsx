@@ -3,24 +3,30 @@ import Slider from "react-slick"; // Importa la librería de slick-carousel
 import "slick-carousel/slick/slick.css"; // Estilos base de slick-carousel
 import "slick-carousel/slick/slick-theme.css"; // Estilos del tema de slick-carousel
 import sliderImages from "../assets/SliderPrincipal/imagenes"; // Importa las imágenes
-import iconoNext from '../assets/SliderPrincipal/iconoNext.png'
-import iconoBack from '../assets/SliderPrincipal/iconoBack.png'
-
+import iconoNext from "../assets/SliderPrincipal/iconoNext.png";
+import iconoBack from "../assets/SliderPrincipal/iconoBack.png";
 
 // Flecha personalizada para siguiente
 const FlechaSiguiente = ({ onClick }) => {
   return (
-      <img src={iconoNext} alt="→"  className="  rounded-full cursor-pointer h-full w-max"
-      onClick={onClick}/>
-
+    <img
+      src={iconoNext}
+      alt="→"
+      className="  rounded-full cursor-pointer h-full w-max"
+      onClick={onClick}
+    />
   );
 };
 
 // Flecha personalizada para anterior
 const FlechaAnterior = ({ onClick }) => {
   return (
-    <img src={iconoBack} alt="←"   className="    rounded-full cursor-pointer h-full w-max"
-      onClick={onClick}/>
+    <img
+      src={iconoBack}
+      alt="←"
+      className="    rounded-full cursor-pointer h-full w-max"
+      onClick={onClick}
+    />
   );
 };
 
@@ -36,8 +42,10 @@ const SliderPrincipal = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 30000000,
-    nextArrow: <FlechaSiguiente onClick={() => sliderRef.current.slickNext()} />,
+    autoplaySpeed: 3000000,
+    nextArrow: (
+      <FlechaSiguiente onClick={() => sliderRef.current.slickNext()} />
+    ),
     prevArrow: <FlechaAnterior onClick={() => sliderRef.current.slickPrev()} />,
     arrows: false,
     beforeChange: (current, next) => {
@@ -52,53 +60,59 @@ const SliderPrincipal = () => {
   };
 
   return (
-    <div className="relative w-full h-full mx-auto text-center ">
-      <Slider {...configuracionSlider} ref={sliderRef}>
-        {sliderImages.map((img, index) => (
-          <div key={index} className=" !flex h-[calc(100vh-160px)]  justify-center items-end  z-50   pb-9">
-            <img
-              src={img}
-              alt={`Slide ${index + 1}`}
-              className="w-auto  h-[90%] object-cover rounded-lg "
-            />
-          </div>
-        ))}
-      </Slider>
-  <div className="absolute right-4 bottom-20">
-
-     <div className="absolute bottom-0 right-20 transform -translate-x-1/">
-        <ul className="relative">
-          {sliderImages.map((_, index) => (
-            <li
+    <div className="relative w-full h-full mx-auto text-center  ">
+      <div className="absolute bottom-20   w-full h-auto mv:bottom-0 mv:h-[100%] mv:top-0 mv:relative  overflow-hidden">
+        <Slider {...configuracionSlider} ref={sliderRef}>
+          {sliderImages.map((img, index) => (
+            <div
               key={index}
-              onClick={() => handleDotClick(index)} // Cambia la imagen al hacer clic
-              className={`w-3 h-3  rounded-full cursor-pointer transition-all duration-300 ease-in-out ${
-                index === activeIndex ? 'bg-f7527a ' : 'bg-white'
-              }`}
-              style={{
-                position: 'absolute',
-                transform: `rotate(${(60 / sliderImages.length) * index}deg) translateY(-80px)`, // Distribuir en círculo
-                transformOrigin: 'center', // Hace que los puntos roten alrededor del centro
-              }}
-            />
+              className=" !flex h-[60vh]  justify-center w-auto object-contain	   z-10   mv:relative 
+               "
+            >
+              <img
+                src={img}
+                alt={`Slide ${index + 1}`}
+                className="w-auto  h-full object-contain rounded-lg mv:h-[90%] mv:absolute mv:bottom-[5%]
+                 "
+              />
+            </div>
           ))}
-        </ul>
+        </Slider>
       </div>
+      <div className="absolute right-4 bottom-20 mv:right-16 mv:bottom-12 ">
+        <div className="absolute bottom-0 right-20 transform -translate-x-1  ">
+          <ul className="relative">
+            {sliderImages.map((_, index) => (
+              <li
+                key={index}
+                onClick={() => handleDotClick(index)} // Cambia la imagen al hacer clic
+                className={`w-3 h-3  rounded-full cursor-pointer transition-all duration-300 ease-in-out ${
+                  index === activeIndex ? "bg-f7527a " : "bg-white"
+                }`}
+                style={{
+                  position: "absolute",
+                  transform: `rotate(${
+                    (60 / sliderImages.length) * index
+                  }deg) translateY(-5rem)`, // Distribuir en círculo
+                  transformOrigin: "center", // Hace que los puntos roten alrededor del centro
+                }}
+              />
+            ))}
+          </ul>
+        </div>
 
-      {/* Contenedor para las flechas personalizadas */}
-      <div className=" h-12 flex justify-center space-x-2 bg-f7527a rounded-full mt-4 right-12 absolute bottom-0 w-max py-2 px-2">
-        <FlechaAnterior onClick={() => sliderRef.current.slickPrev()} />
-        <FlechaSiguiente onClick={() => sliderRef.current.slickNext()} />
+        {/* Contenedor para las flechas personalizadas */}
+        <div className=" h-12 flex justify-center space-x-2 bg-f7527a rounded-full mt-4 right-12 absolute bottom-0 w-max py-2 px-2 mv:h-16 mv:-bottom-2 mv:right-8">
+          <FlechaAnterior onClick={() => sliderRef.current.slickPrev()} />
+          <FlechaSiguiente onClick={() => sliderRef.current.slickNext()} />
+        </div>
       </div>
-  </div>
       {/* Puntos distribuidos en círculo */}
-     
     </div>
   );
 };
 
 export default SliderPrincipal;
-
 
 // import React, { useState } from "react";
 // import Slider from "react-slick"; // Importa la librería de slick-carousel
@@ -180,13 +194,7 @@ export default SliderPrincipal;
 
 // export default SliderPrincipal;
 
-
-
-
-
-
-
- // import React, { useRef } from "react";
+// import React, { useRef } from "react";
 // // import Slider from "react-slick"; // Importa la librería de slick-carousel
 // // import "slick-carousel/slick/slick.css"; // Estilos base de slick-carousel
 // // import "slick-carousel/slick/slick-theme.css"; // Estilos del tema de slick-carousel
@@ -327,13 +335,13 @@ export default SliderPrincipal;
 //         {i + 1}
 //       </div>
 //     ),
-    
+
 //     arrows: false,
-    
+
 //     beforeChange: (current, next) => {
 //         setActiveIndex(next); // Cambiar el índice activo antes de cada cambio
 //       },
-    
+
 //     // Desactiva las flechas predeterminadas de slick-carousel
 //   };
 

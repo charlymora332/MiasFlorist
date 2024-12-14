@@ -30,6 +30,11 @@ body { font-family: 'SF Pro Display', sans-serif; }
 .style-5 {
   @apply font-sf-pro-display font-medium text-16 leading-24 text-131313;
 }
+/* Esto debe ser más específico para evitar conflictos */
+.slick-slide > div {
+  display: block;
+  width: 100% !important; /* Asegura que las slides tengan 100% del ancho del contenedor */
+}
 
 /* Font face para SF Pro Display */
 @font-face {

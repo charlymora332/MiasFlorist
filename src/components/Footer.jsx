@@ -27,7 +27,7 @@ function Footer() {
               <Link to="" aria-label="About us" className=" border-x-[1px] border-f5f5f5 ">
                 About us
               </Link>
-              <Link to="" aria-label="Contact">
+              <Link to="/MiasFlorist/Contact" aria-label="Contact">
                 Contact
               </Link>
               <Link to="" aria-label="Frequent questions" >

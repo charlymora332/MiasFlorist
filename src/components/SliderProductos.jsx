@@ -13,7 +13,7 @@ const FlechaSiguiente = ({ onClick }) => {
     <img
       src={iconoNext}
       alt="→"
-      className="  rounded-full cursor-pointer h-8 w-max"
+      className="  rounded-full cursor-pointer h-8 w-max mv:hidden"
       onClick={onClick}
     />
   );
@@ -25,13 +25,13 @@ const FlechaAnterior = ({ onClick }) => {
     <img
       src={iconoBack}
       alt="←"
-      className="    rounded-full cursor-pointer h-8 w-max"
+      className="    rounded-full cursor-pointer h-8 w-max mv:hidden"
       onClick={onClick}
     />
   );
 };
 
-function SliderProductos({ children }) {
+function SliderProductos({ children, anchoEle = '310',  }) {
   const [activeIndex, setActiveIndex] = useState(0); // Estado para el índice activo
   const sliderRef = React.useRef(null); // Referencia al slider
   const [cantidadProductos, setCantidadProductos] = useState(1);
@@ -39,14 +39,14 @@ function SliderProductos({ children }) {
   // Función para ajustar cantidadProductos dependiendo del ancho de la pantalla
   const pantallaRedimensionada = () => {
     const width = window.innerWidth;
-    const productoAncho = 310; // Ancho fijo de cada producto
+    const productoAncho = anchoEle; // Ancho fijo de cada producto
 
     // Calculamos cuántos productos caben en la pantalla
     const productosEnPantalla = Math.floor(width / productoAncho);
 
     // Aseguramos que siempre se muestre al menos 1 producto
     // También evitamos que se muestren demasiados productos (como 10 en pantallas grandes)
-    setCantidadProductos(Math.min(Math.max(productosEnPantalla, 1), 5));
+    setCantidadProductos(Math.min(Math.max(productosEnPantalla, 2), 5));
   };
   // Usar useEffect para escuchar cambios en el tamaño de la ventana
   useEffect(() => {
@@ -86,7 +86,7 @@ function SliderProductos({ children }) {
       {/* <Productos id={} img={} imgAlt={} nombre={}  dolar={} cent={} precioNormal={} /> */}
       <div className="relative w-full h-full mx-auto text-center ">
         <div>
-          <div className="w-full items-center flex flex-row justify-between">
+          <div className="w-full items-center flex flex-row justify-around">
             <FlechaAnterior onClick={() => sliderRef.current.slickPrev()} />
             <div className="w-11/12 ">
               <Slider {...configuracionSlider} ref={sliderRef}>

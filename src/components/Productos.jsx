@@ -12,7 +12,7 @@ function Productos({
 }) {
   console.log(imgAlt, cent);
   return (
-    <div className="relative bg-white z-0 h-[20rem] w-[16rem] border-solid rounded-2xl border-2 border-[#E4E4E4] overflow-hidden mx-auto">
+    <div className="relative bg-white z-0 h-[20rem] w-[16rem] border-solid rounded-2xl border-2 border-[#E4E4E4] overflow-hidden mx-auto mv:w-[14rem] mv:h-[18rem] ">
       {etiqueta ? (
         <div className="bg-ffaa01 absolute left-2 top-2 rounded-full w-max  cursor-pointer z-50">
           <h5 className="style-1 !text-sm !text-white  px-2 py-0.5 !font-extrabold -skew-x-12  ">
