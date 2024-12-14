@@ -66,7 +66,7 @@ function SliderProductos({ children, anchoEle = '310',  }) {
     slidesToShow: cantidadProductos,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 200000,
     nextArrow: <FlechaSiguiente />,
     prevArrow: <FlechaAnterior />,
     arrows: false,

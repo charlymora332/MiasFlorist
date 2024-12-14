@@ -112,19 +112,19 @@ function home() {
             ))}
           </SliderProductos>
         </div>
-        <div className="relative w-full h-max mt-24">
+        <div className="relative w-full h-max mt-24 flex flex-row mv:flex-col ">
           <div className="absolute -z-10 bg-f5f5f5 p-16 ml-[25%] rounded-l-2xl xl:m-0 h-full w-full"></div>
 
           <div className="  w-full flex flex-col xl:flex-row gap-8 pl-20 xl:p-0 h-auto bg-transparent ">
-            <div className=" relative w-1/2 flex flex-row h-72">
-              <div className="relative h-full w-full ">
+            <div className=" relative w-1/2 flex flex-row h-72 justify-center items-center mv:w-full    ">
+              <div className="relative h-full w-2/5 flex justify-end">
                 <img
                   src={p2i1}
                   alt="Map ubication"
-                  className=" h-full -bottom-6  object-contain "
+                  className=" h-full -bottom-6  object-contain scale-[1.3] mv:scale-[1.2] "
                 />
               </div>
-              <div className="absolute w-full xl:w-auto left-96 top-1/2 -translate-y-1/2  mv:-translate-x-2/3">
+              <div className=" w-3/5 xl:w-auto ">
                 <h4 className="style-2 !text-2xl !text-f7527a font-light">
                   Flower delivery to:
                 </h4>
@@ -142,16 +142,16 @@ function home() {
                 </Link>
               </div>
             </div>
-            <div className=" relative w-1/2 flex flex-row  h-72">
-              <div className="relative h-full  w-full    ">
+            <div className=" relative w-1/2 flex flex-row  h-72    justify-center items-center mv:w-full   ">
+              <div className="relative h-full  w-2/5  flex justify-end  ">
                 <img
                   src={p2i2}
                   alt="icon seguridad"
-                  className="absolute h-[125%] w-auto -bottom-6 object-contain"
+                  className=" h-full w-auto -bottom-6 object-contain scale-[1.3] mv:scale-[1.2]"
                 />
               </div>
 
-              <div className="absolute w-full xl:w-auto left-[22rem] top-1/2 -translate-y-1/2 mv:-translate-x-2/3">
+              <div className=" w-3/5  pl-4 ">
                 <h4 className="style-2 !text-2xl !text-f7527a font-light">
                   Our schedule:
                 </h4>
@@ -171,7 +171,7 @@ function home() {
             <SubTitulo antes={"Our "} despues={"categories"} />
           </span>
 
-          <SliderProductos>
+          <SliderProductos anchoEle="335">
             {tarjetasArray.map((producto, index) => (
               <Tarjetas
                 img={producto.img}
