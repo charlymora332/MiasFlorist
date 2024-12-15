@@ -28,11 +28,11 @@ function Productos({
   precioNormal,
   etiqueta,
 }) {
-  console.log(imgAlt, cent);
+
   return (
     <div className='relative z-0 mx-auto h-[21rem] my-[0.5rem]  w-[16rem] overflow-hidden rounded-2xl border-2 border-solid border-[#E4E4E4] bg-white mv:h-[18rem] mv:w-[14rem]  transition-all scale-95 hover:scale-100'>
       <div
-        className={` z-50 absolute h-full w-full pt-[90%] px-4 opacity-0 hover:opacity-100 transition-opacity duration-300 tv:px-2 mv:pt-[85%] ${
+        className={` z-50 absolute h-full w-full pt-[90%] px-4 opacity-0 hover:opacity-100 transition-opacity duration-300 tv:px-0 mv:pt-[85%] ${
           id % 2 == 0 ? 'bg-[#f6dcdc]/75' : 'bg-[#f5f5f5]/75'
         }`}
       >
@@ -60,7 +60,7 @@ function Productos({
         />
       </div>
       <div className='flex h-2/6 flex-col justify-between'>
-        <p className='style-5 text-center !text-xl !font-extrabold px-4 mv:px-8'>{nombre}</p>
+        <p className='style-5 text-center !text-xl !font-extrabold px-4 mv:p-2'>{nombre}</p>
 
         <span className='mb-4 flex flex-row items-end justify-center gap-4 text-center !text-lg'>
           <Precio

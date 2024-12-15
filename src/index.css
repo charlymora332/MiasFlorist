@@ -47,6 +47,8 @@ html, body {
   color: #131313;
   scrollbar-width: thin; /* Firefox: ancho del scrollbar */
   scrollbar-color: #4f5b62 transparent; /* Colores del scrollbar en Firefox */
+  width: 100%;
+  overflow-x: hidden;
 }
 
 * {
@@ -95,3 +97,4 @@ html, body {
 .style-5 {
   @apply font-sf-pro-display text-16 font-medium leading-24 text-131313;
 }
+
