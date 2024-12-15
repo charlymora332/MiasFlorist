@@ -32,7 +32,10 @@ import Footer from "../components/Footer";
 function home() {
   return (
     <div className="pt-36">
-      <Header /> {/* Si deseas mostrar un encabezado en todas las páginas */}
+      <div className="sticky top-0 h-4 w-full z-50">
+      <Header /> 
+      </div>
+      {/* Si deseas mostrar un encabezado en todas las páginas */}
       <div className="relative ">
         <div className=" h-[calc(100vh_-_9rem)] mv:h-auto   ">
           <div
@@ -81,12 +84,12 @@ function home() {
             </div>
           </div>
         </div>
-        <div className="flex flex-row justify-center gap-8 h-auto w-screen my-16 px-8 mx-auto object-contain  mv:flex-col ">
-          <img src={p1i1} alt="40% SALE" className="w-[50%] mv:w-full " />
+        <div className="flex flex-row justify-center  gap-8 h-auto w-full my-16 px-8 mx-auto object-contain  md:flex ">
+          <img src={p1i1} alt="40% SALE" className="w-[50%] sm:w-full " />
           <img
             src={p1i2}
             alt="Happy Thanksgiving"
-            className="w-[50%] mv:w-full "
+            className="w-[50%] sm:w-full "
           />
         </div>
         <SubTitulo antes={"Top"} despues={"sellers"} estilosPrinc={"gap-2"} />
@@ -112,8 +115,8 @@ function home() {
             ))}
           </SliderProductos>
         </div>
-        <div className="relative w-full h-max mt-24 flex flex-row mv:flex-col ">
-          <div className="absolute -z-10 bg-f5f5f5 p-16 ml-[25%] rounded-l-2xl xl:m-0 h-full w-full"></div>
+        <div className="relative w-full h-max mt-24 flex flex-row mv:flex-col mv:mt-4 ">
+          <div className="absolute -z-10 bg-f5f5f5  ml-[25%] rounded-l-2xl xl:m-0 h-full w-full " ></div>
 
           <div className="  w-full flex flex-col xl:flex-row gap-8 pl-20 xl:p-0 h-auto bg-transparent ">
             <div className=" relative w-1/2 flex flex-row h-72 justify-center items-center mv:w-full    ">
@@ -165,7 +168,7 @@ function home() {
         </div>
 
         <div className="relative flex flex-col gap-12 mt-16 pt">
-          <div className="absolute  right-0 h-full w-2/3 bg-f6dcdc rounded-l-[3.5rem] "></div>
+          <div className="absolute  right-0 h-full w-10/12 bg-f6dcdc rounded-l-[3.5rem] lg:[2/3] "></div>
 
           <span className=" mt-8">
             <SubTitulo antes={"Our "} despues={"categories"} />
@@ -214,10 +217,11 @@ function home() {
         <div className="relative w-full h-auto flex flex-row ">
           <div className="absolute bg-f5f5f5 w-full h-full -z-10"></div>
 
-          <div className="flex flex-row w-full px-24 py-16 mv:flex-col ">
-            <div className="w-1/2">
+          <div className="flex flex-col w-full px-24 py-16 lg:flex-row gap-10">
+            <div className="w-full lg:1/2">
               <h1 className="style-4 -skew-x-12 !font-font-sf-pro-display-black-italic  !font-black !text-ffaa01 !text-7xl  ">
                 Happy
+                <h1 className="lg:hidden text-[#D50C07] "> Thanksgiving</h1>{" "}
               </h1>
               <h6 className="text-606060 style-1 text-xs !font-normal mt-28 mb-10">
                 See the best decorations for this celebration
@@ -227,7 +231,7 @@ function home() {
               </div>
             </div>
 
-            <div className="flex flex-row w-1/2">
+            <div className="flex flex-row w-full lg:1/2">
               {productosArray
                 .filter((producto, index) => index === 0 || index === 5) // Filtra la imagen 1 y la 5
                 .map((producto, index) => (
@@ -274,7 +278,7 @@ function home() {
           </SliderProductos>
         </div>
 
-        <div className="relative flex flex-col gap-12 py-16">
+        <div className="relative flex flex-col gap-12 py-16 mv:mt-14">
           <div className=" relative">
             <div className="absolute h-[120%] w-4/5 bg-f5f5f5 right-0 rounded-l-[5rem] py-56 top-1/2 -translate-y-1/2"></div>
 

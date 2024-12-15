@@ -2,7 +2,7 @@ import React from "react";
 
 function Tarjetas({ img, imgAlt = "tarjet", titulo, texto }) {
   return (
-    <div className="relative h-56 w-auto aspect-[4/3] mx-8">
+    <div className="relative h-auto w-full aspect-[4/3] ">
       
    
       <img src={img} alt={imgAlt} className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-10 w-auto mx-auto h-full object-contain" />

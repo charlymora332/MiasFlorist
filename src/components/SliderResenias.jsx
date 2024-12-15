@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import Slider from "react-slick"; // Importa la librería de slick-carousel
 import "slick-carousel/slick/slick.css"; // Estilos base de slick-carousel
 import "slick-carousel/slick/slick-theme.css"; // Estilos del tema de slick-carousel
@@ -14,7 +14,7 @@ const FlechaSiguiente = ({ onClick }) => {
     <img
       src={iconoNext}
       alt="→"
-      className=" aspect-square rounded-full cursor-pointer h-full w-max"
+      className=" aspect-square rounded-full cursor-pointer h-full w-max mv:hidden"
       onClick={onClick}
     />
   );
@@ -26,26 +26,57 @@ const FlechaAnterior = ({ onClick }) => {
     <img
       src={iconoBack}
       alt="←"
-      className="  aspect-square  rounded-full cursor-pointer h-full w-max"
+      className="  aspect-square  rounded-full cursor-pointer h-full w-max mv:hidden"
       onClick={onClick}
     />
   );
 };
 
-const SliderPrincipal = () => {
+const SliderResenias = () => {
   const [activeIndex, setActiveIndex] = useState(0); // Estado para el índice activo
-  const sliderRef = React.useRef(null); // Referencia al slider
+  const sliderRef = useRef(null); // Referencia al slider
+  const [cantidadProductosH, setCantidadProductosH] = useState(1); // Cantidad de productos horizontales
+  const [cantidadProductosV, setCantidadProductosV] = useState(1); // Cantidad de productos verticales
+  const [isVertical, setIsVertical] = useState(false); // Estado para saber si el carrusel está en modo vertical
+
+  const pantallaRedimensionada = useCallback(() => {
+    const width = window.innerWidth; // Obtener el ancho de la pantalla
+    const productoAncho = 380; // Ancho fijo de cada producto
+    const productosEnPantalla = Math.floor(width / productoAncho); // Calcular cuántos productos caben en pantalla
+
+    // Si la pantalla es más pequeña que 800px, cambiar el carrusel a modo horizontal
+    if (productosEnPantalla > 800) {
+      setCantidadProductosV(Math.min(Math.max(productosEnPantalla, 1), 5));
+      setIsVertical(false); // Establecer que el carrusel es horizontal
+    } else {
+      // Para pantallas grandes, cambiar a modo vertical
+      setCantidadProductosV(3);
+      setIsVertical(true); // Establecer que el carrusel es vertical
+    }
+  }, []);
+
+  useEffect(() => {
+    // Llamar a la función para ajustar las configuraciones del carrusel
+    pantallaRedimensionada();
+
+    // Agregar evento de redimensionamiento para cambiar el diseño dinámicamente
+    window.addEventListener("resize", pantallaRedimensionada);
+
+    return () => {
+      // Limpiar el evento cuando el componente se desmonte
+      window.removeEventListener("resize", pantallaRedimensionada);
+    };
+  }, [pantallaRedimensionada]);
 
   // Configuración del slider
   const configuracionSlider = {
-    dots: false, // Deshabilitamos los puntos automáticos de slick
+    dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToShow: cantidadProductosV, // Número de productos a mostrar horizontalmente
+    slidesToScroll: 1, // Número de productos a desplazar verticalmente
     autoplay: true,
-    autoplaySpeed: 30000000,
-
+    autoplaySpeed: 300000,
     nextArrow: (
       <FlechaSiguiente onClick={() => sliderRef.current.slickNext()} />
     ),
@@ -54,22 +85,20 @@ const SliderPrincipal = () => {
     beforeChange: (current, next) => {
       setActiveIndex(next); // Cambiar el índice activo antes de cada cambio
     },
-  };
-
-  const handleDotClick = (index) => {
-    // Cambiar el slider al índice seleccionado al hacer clic en un punto
-    sliderRef.current.slickGoTo(index);
-    setActiveIndex(index); // Actualizar el índice activo
+    vertical: isVertical, // Configurar si el slider es vertical o no
+    verticalSwiping: isVertical, // Habilitar deslizamiento vertical si es necesario
   };
 
   return (
     <div className="relative w-full h-full mx-auto text-center ">
       <div className="flex flex-row justify-center items-center relative mb-8 ">
-        <div className="style-4 !text-3xl flex flex-row space-x-2  justify-center items-center">
-          <h3 className="!text-f7527a"> ⭐⭐⭐⭐⭐(5-Star)</h3>{" "}
-          <h3 className="">Reviews on Google my Business</h3>{" "}
+        <div className="style-4 !text-3xl flex flex-col space-x-2  justify-center items-center sm:flex-row">
+          <span className=" flex flex-col sm:flex-row">⭐⭐⭐⭐⭐</span>{" "}
+          <h3 className="">
+            <span className="!text-f7527a">(5-Star)</span>Reviews on Google my
+          </h3>
         </div>
-        <div className=" h-12 flex justify-center space-x-2 bg-f7527a rounded-full absolute right-20  top-1/2 -translate-y-1/2 w-max py-2 px-2">
+        <div className=" h-12 flex justify-center space-x-2 bg-f7527a rounded-full absolute right-20  top-1/2 -translate-y-1/2 w-max py-2 px-2 mv:hidden">
           <FlechaAnterior onClick={() => sliderRef.current.slickPrev()} />
           <FlechaSiguiente onClick={() => sliderRef.current.slickNext()} />
         </div>
@@ -81,16 +110,18 @@ const SliderPrincipal = () => {
         </div>
 
         <div className="w-10/12">
-          <Slider {...configuracionSlider} ref={sliderRef} className="bg-red-50">
+          <Slider {...configuracionSlider} ref={sliderRef}>
             {reseniasArray.map((resenia, index) => (
-              <Resenia
-                id={resenia.id}
-                img={resenia.img}
-                imgAlt={resenia.imgAlt}
-                titulo={resenia.titulo}
-                texto={resenia.texto}
-                autor={resenia.autor}
-              />
+              <div>
+                <Resenia
+                  id={resenia.id}
+                  img={resenia.img}
+                  imgAlt={resenia.imgAlt}
+                  titulo={resenia.titulo}
+                  texto={resenia.texto}
+                  autor={resenia.autor}
+                />
+              </div>
             ))}
           </Slider>
         </div>
@@ -100,7 +131,7 @@ const SliderPrincipal = () => {
       </div>
 
       <div className="  flex flex-col justify-center items-center">
-        <div className=" bottom-0 right-20  z-30 flex flex-row my-6">
+        <div className=" bottom-0 right-20  z-30 flex flex-row my-6 mv:hidden">
           <ul className=" relative mx-auto flex flex-row gap-2">
             {reseniasArray.map((_, index) => (
               <li
@@ -114,7 +145,7 @@ const SliderPrincipal = () => {
           </ul>
         </div>
 
-        <div className="w-56">
+        <div className="w-56 mv:pt-12 mv:w-11/12">
           <BtnOrange texto={"Write a review"} />
         </div>
 
@@ -125,4 +156,4 @@ const SliderPrincipal = () => {
   );
 };
 
-export default SliderPrincipal;
+export default SliderResenias;

@@ -38,10 +38,11 @@ export default {
       'ultra-bold': 1000, // Puedes añadir un peso más grueso, como 1000
     },
     screens: {
-      'mv': { max: '766px' }, // Breakpoint personalizado para dispositivos menores a 780px
+      'mv': { max: '766px' },
+      'tv': { max: '1000px' }, // Breakpoint personalizado para dispositivos menores a 780px
     },
     boxShadow: {
-      'shadow-inferio': '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',
+      'shadow-inferio': '0 4px 6px rgba(0, 0, 0, 0.1), 0 5px 3px rgba(0, 0, 0, 0.08)',
     },
   },
   },

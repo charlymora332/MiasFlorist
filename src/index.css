@@ -30,11 +30,36 @@ body { font-family: 'SF Pro Display', sans-serif; }
 .style-5 {
   @apply font-sf-pro-display font-medium text-16 leading-24 text-131313;
 }
-/* Esto debe ser más específico para evitar conflictos */
-.slick-slide > div {
-  display: block;
-  width: 100% !important; /* Asegura que las slides tengan 100% del ancho del contenedor */
+
+/* Estilo para el scrollbar global */
+/* Para Firefox */
+html, body {
+  scrollbar-width: thin; /* Controla el ancho del scrollbar */
+  scrollbar-color: #4f5b62 transparent; /* Color del thumb en gris azulado oscuro y track transparente */
 }
+
+/* Para navegadores basados en Webkit (Chrome, Safari, etc.) */
+::-webkit-scrollbar {
+  width: 8px; /* Ancho del scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4f5b62; /* Gris azulado oscuro para el thumb */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent; /* Fondo transparente del track */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Asegúrate de agregar la propiedad de border-radius al contenedor si es necesario */
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+  border-radius: 10px; /* Redondeo en la esquina del scrollbar */
+}
+
+
 
 /* Font face para SF Pro Display */
 @font-face {
@@ -59,6 +84,7 @@ body { font-family: 'SF Pro Display', sans-serif; }
 }
 html{
   font-size: clamp(12px, 2vw, 18px);
+  color: 131313;
 }
 
 :root {
@@ -91,7 +117,7 @@ html {
 
   font-family: var(--unnamed-font-family-sf-pro-display);
   /* Por defecto, SF Pro Display */
-
+  color: #131313;
 }
 
 * {

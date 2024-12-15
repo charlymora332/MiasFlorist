@@ -66,7 +66,7 @@ function SliderProductos({ children, anchoEle = '310',  }) {
     slidesToShow: cantidadProductos,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 200000,
+    autoplaySpeed: 2000,
     nextArrow: <FlechaSiguiente />,
     prevArrow: <FlechaAnterior />,
     arrows: false,
@@ -84,7 +84,7 @@ function SliderProductos({ children, anchoEle = '310',  }) {
   return (
     <div>
       {/* <Productos id={} img={} imgAlt={} nombre={}  dolar={} cent={} precioNormal={} /> */}
-      <div className="relative w-full h-full mx-auto text-center ">
+      <div className="relative w-full h-max mx-auto text-center pb-10 ">
         <div>
           <div className="w-full items-center flex flex-row justify-around">
             <FlechaAnterior onClick={() => sliderRef.current.slickPrev()} />
@@ -95,13 +95,13 @@ function SliderProductos({ children, anchoEle = '310',  }) {
             </div>
             <FlechaSiguiente onClick={() => sliderRef.current.slickNext()} />
             </div>
-            <div className=" mx-auto">
-              <ul className="relative  mx-auto flex flex-row w-max my-8 gap-2">
+            <div className=" mx-auto relative mb-10">
+              <ul className="  left-1/2 -translate-x-1/2 flex flex-row w-max my-8 gap-2  absolute z-50 ">
                 {productos.map((_, index) => (
                   <li
                     key={index}
                     onClick={() => handleDotClick(index)} // Cambia la imagen al hacer clic
-                    className={`w-3 h-3  rounded-full cursor-pointer transition-all duration-300 ease-in-out ${
+                    className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ease-in-out  shadow-[0_0_20px_2px_rgba(0,0,0,0.2)] ${
                       index === activeIndex ? "bg-f7527a " : "bg-[#E4E4E4]"
                     }`}
                   />

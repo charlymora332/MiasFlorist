@@ -3,7 +3,7 @@ import SubTitulo from "./SubTitulo";
 import metodosPago from "../assets/metodosPago/metodosPago";
 function MetodosPago() {
   return (
-    <div className="w-full  pt-4 pb-16 flex flex-col gap-12">
+    <div className="w-full  pt-4 pb-16 flex flex-col gap-12 mv:pt-32">
       <span className="">
         <SubTitulo
           antes={"Our "}
@@ -13,13 +13,13 @@ function MetodosPago() {
       </span>
 
       <div className="h-auto w-full overflow-hidden px-4 flex-grow ">
-        <div className="flex flex-wrap justify-around">
+        <div className="flex flex-wrap justify-around gap-y-12">
           {metodosPago.map((img, index) => (
             <img
               key={index}
               src={img.img}
               alt={img.alt}
-              className="w-20 h-auto object-contain"
+              className="w-20 h-auto object-contain mv:w-1/3 mv:px-8 "
             />
           ))}
         </div>
