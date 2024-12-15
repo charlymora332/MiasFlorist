@@ -6,7 +6,8 @@
 
 Puedes ver la web directamente en:  
 [https://charlymora332.github.io/MiasFlorist](https://charlymora332.github.io/MiasFlorist/) 🌐
-</ br>
+
+
 [https://charlymora332.github.io/MiasFlorist/Contact](https://charlymora332.github.io/MiasFlorist/Contact) 🌐
 
 
