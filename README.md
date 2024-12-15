@@ -5,7 +5,9 @@
 **MiasFlorist** es una aplicación web de floristería desarrollada con **React** y **Tailwind CSS**, diseñada para ofrecer una experiencia visual atractiva y fluida. La web permite explorar un catálogo de flores y productos florales de manera interactiva. Esta aplicación está inspirada en una prueba técnica de desarrollo web.
 
 Puedes ver la web directamente en:  
-[https://charlymora332.github.io/MiasFlorist/](https://charlymora332.github.io/MiasFlorist/) 🌐
+[https://charlymora332.github.io/MiasFlorist/](https://charlymora332.github.io/MiasFlorist) 🌐
+[https://charlymora332.github.io/MiasFlorist/Contact/](https://charlymora332.github.io/MiasFlorist/Contact) 🌐
+
 
 ## 🚀 Funcionalidades
 
