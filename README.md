@@ -29,15 +29,15 @@ Para ejecutar este proyecto en tu máquina local, sigue estos pasos:
    ```bash
    git clone https://github.com/charlymora332/MiasFlorist.git
    cd MiasFlorist
-Instala las dependencias:
+2. Instala las dependencias:
 
     ```bash
-      npm install
-Ejecuta el servidor de desarrollo:
+    npm install
+3. Ejecuta el servidor de desarrollo:
 
-    ```bash
-          npm run dev
-          Luego abre tu navegador y visita http://localhost:3000 para ver la aplicación en acción. 🚀
+   ```bash
+      npm run dev
+      Luego abre tu navegador y visita http://localhost:3000 para ver la aplicación en acción. 🚀
 
 
 
