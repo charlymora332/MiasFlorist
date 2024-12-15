@@ -39,7 +39,5 @@ Para ejecutar este proyecto en tu máquina local, sigue estos pasos:
       npm run dev
       Luego abre tu navegador y visita http://localhost:3000 para ver la aplicación en acción. 🚀
 
-
-
 🤝 Agradecimientos
 Gracias a React y Tailwind CSS por sus increíbles herramientas. Proyecto inspirado en una prueba técnica. ¡Gracias por visitar! 💖
