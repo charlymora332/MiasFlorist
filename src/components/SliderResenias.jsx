@@ -76,7 +76,7 @@ const SliderResenias = () => {
     slidesToShow: cantidadProductosV, // Número de productos a mostrar horizontalmente
     slidesToScroll: 1, // Número de productos a desplazar verticalmente
     autoplay: true,
-    autoplaySpeed: 300000,
+    autoplaySpeed: 3000,
     nextArrow: (
       <FlechaSiguiente onClick={() => sliderRef.current.slickNext()} />
     ),
@@ -92,11 +92,11 @@ const SliderResenias = () => {
   return (
     <div className='relative mx-auto h-full w-full text-center'>
       <div className='relative mb-8 flex flex-row items-center justify-center'>
-        <div className='style-4 flex flex-col items-center justify-center space-x-2 !text-3xl sm:flex-row'>
-          <span className='flex flex-col sm:flex-row'>⭐⭐⭐⭐⭐</span>{' '}
-          <h3 className=''>
+        <div className='style-4 flex flex-col items-center justify-center space-x-2 !text-3xl  lg:flex-row'>
+          <span className='flex flex-col '>⭐⭐⭐⭐⭐</span>{' '}
+          <span className=''>
             <span className='!text-f7527a'>(5-Star)</span>Reviews on Google my
-          </h3>
+          </span>
         </div>
         <div className='absolute right-20 top-1/2 flex h-12 w-max -translate-y-1/2 justify-center space-x-2 rounded-full bg-f7527a px-2 py-2 mv:hidden'>
           <FlechaAnterior onClick={() => sliderRef.current.slickPrev()} />
@@ -111,9 +111,10 @@ const SliderResenias = () => {
 
         <div className='w-10/12'>
           <Slider {...configuracionSlider} ref={sliderRef}>
-            {reseniasArray.map((resenia, index) => (
-              <div>
+            {reseniasArray.map((resenia) => (
+              <div key={resenia.id}>
                 <Resenia
+                key={resenia.id}
                   id={resenia.id}
                   img={resenia.img}
                   imgAlt={resenia.imgAlt}

@@ -3,17 +3,7 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      // colors: {
-      //   // Define tus colores con los nombres que prefieras
-      //   'unnamed-color-f5f5f5': '#F5F5F5',
-      //   'unnamed-color-131313': '#131313',
-      //   'unnamed-color-606060': '#606060',
-      //   'unnamed-color-ffaa01': '#FFAA01',
-      //   'unnamed-color-f6dcdc': '#F6DCDC',
-      //   'unnamed-color-f7527a': '#F7527A',
-      //   'unnamed-color-F5F5F5': '#F5F5F5',
 
-      // },
       colors: {
         f5f5f5: '#F5F5F5',
         131313: '#131313',

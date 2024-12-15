@@ -70,7 +70,7 @@ function SliderProductos({ children, anchoEle = '310' }) {
     slidesToShow: cantidadProductos, // Número de productos a mostrar
     slidesToScroll: 1, // Número de productos a desplazar por cada acción
     autoplay: true, // Habilita la reproducción automática
-    autoplaySpeed: 2000, // Velocidad de la reproducción automática
+    autoplaySpeed: 3000, // Velocidad de la reproducción automática
     nextArrow: <FlechaSiguiente />, // Flecha para avanzar
     prevArrow: <FlechaAnterior />, // Flecha para retroceder
     arrows: false, // Deshabilita las flechas predeterminadas de Slick

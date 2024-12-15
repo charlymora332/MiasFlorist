@@ -12,7 +12,7 @@ import React from 'react';
 
 function BtnOrange({ texto }) {
   return (
-    <h1 className='text-unnamed-color-131313 w-full cursor-pointer rounded-full bg-ffaa01 px-12 py-3 text-center font-bold text-131313 mv:py-4 mv:!text-2xl'>
+    <h1 className=' w-full cursor-pointer rounded-full  bg-ffaa01 px-12 py-3 text-center !font-bold text-131313 mv:py-4 mv:!text-2xl mv:px-2 '>
       {texto}
     </h1>
   );

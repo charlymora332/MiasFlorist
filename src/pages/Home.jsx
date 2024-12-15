@@ -75,12 +75,12 @@ function home() {
             </div>
           </div>
         </div>
-        <div className='mx-auto my-16 flex h-auto w-full flex-row justify-center gap-8 object-contain px-8 md:flex'>
-          <img src={p1i1} alt='40% SALE' className='w-[50%] sm:w-full' />
+        <div className='mx-auto my-16 grid grid-cols-2 h-auto w-full  justify-center gap-8 object-contain px-8 mv:grid-cols-1'>
+          <img src={p1i1} alt='40% SALE' className='w-full' />
           <img
             src={p1i2}
             alt='Happy Thanksgiving'
-            className='w-[50%] sm:w-full'
+            className='w-full'
           />
         </div>
         <SubTitulo antes={'Top'} despues={'sellers'} estilosPrinc={'gap-2'} />
@@ -107,7 +107,7 @@ function home() {
           </SliderProductos>
         </div>
         <div className='relative mt-24 flex h-max w-full flex-row mv:mt-4 mv:flex-col'>
-          <div className='absolute -z-10 ml-[25%] h-full w-full rounded-l-2xl bg-f5f5f5 xl:m-0'></div>
+          <div className='absolute -z-10 ml-[25%] h-full w-3/4 rounded-l-2xl bg-f5f5f5 xl:m-0 xl:w-full'></div>
 
           <div className='flex h-auto w-full flex-col gap-8 bg-transparent pl-20 xl:flex-row xl:p-0'>
             <div className='relative flex h-72 w-1/2 flex-row items-center justify-center mv:w-full'>
@@ -130,7 +130,7 @@ function home() {
                 <Link
                   to=''
                   aria-label='Contact'
-                  className='text-f7527a underline'
+                  className='!text-f7527a underline style-2'
                 >
                   Track your order.
                 </Link>
@@ -208,11 +208,11 @@ function home() {
         <div className='relative flex h-auto w-full flex-row'>
           <div className='absolute -z-10 h-full w-full bg-f5f5f5'></div>
 
-          <div className='flex w-full flex-col gap-10 px-24 py-16 lg:flex-row'>
+          <div className='flex w-full flex-col gap-10 px-24 py-16 lg:flex-row  mv:px-4  '>
             <div className='lg:1/2 w-full'>
               <h1 className='style-4 -skew-x-12 !font-font-sf-pro-display-black-italic !text-7xl !font-black !text-ffaa01'>
                 Happy
-                <h1 className='text-[#D50C07] lg:hidden'> Thanksgiving</h1>{' '}
+                <span className='text-[#D50C07] lg:hidden'> Thanksgiving</span>{' '}
               </h1>
               <h6 className='style-1 mb-10 mt-28 text-xs !font-normal text-606060'>
                 See the best decorations for this celebration
@@ -283,27 +283,7 @@ function home() {
       <div className='w-full'>
         <Footer />
       </div>
-      {/* <SliderResenias/> */}
-      {/*  */}
-      {/* <div className="p-4">
-        asdfasdfasdf{" "}
-        <p className="style-1">
-          Este es un párrafo con el estilo `style-1` aplicado.
-        </p>{" "}
-        <p className="style-2">
-          Este es un párrafo con el estilo `style-2` aplicado.
-        </p>{" "}
-        <p className="style-3">
-          Este es un párrafo con el estilo `style-3` aplicado.
-        </p>{" "}
-        <p className="style-4">
-          Este es un párrafo con el estilo `style-4` aplicado.
-        </p>{" "}
-        <p className="style-5">
-          Este es un párrafo con el estilo `style-5` aplicado.
-        </p>{" "}
-        <p> natalia esta vieja</p>
-      </div> */}
+      
     </div>
   );
 }

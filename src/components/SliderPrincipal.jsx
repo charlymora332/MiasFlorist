@@ -42,7 +42,7 @@ const SliderPrincipal = () => {
     slidesToShow: 1, // Cuántas imágenes mostrar por vez
     slidesToScroll: 1, // Cuántas imágenes mover por vez
     autoplay: true, // Activar autoplay
-    autoplaySpeed: 3000000, // Tiempo entre transiciones (muy alto para pausas largas)
+    autoplaySpeed: 3000, // Tiempo entre transiciones (muy alto para pausas largas)
     nextArrow: (
       <FlechaSiguiente onClick={() => sliderRef.current.slickNext()} />
     ), // Usar la flecha personalizada para el siguiente

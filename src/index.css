@@ -1,70 +1,13 @@
-
+/* Importar fuentes externas */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 @import 'slick-carousel/slick/slick.css';
 @import 'slick-carousel/slick/slick-theme.css';
 
-/* Importar Playfair Display desde Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
-
+/* Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-/* Estilos personalizados */
-.style-1 {
-  @apply font-sf-pro-display text-24 font-medium leading-24 text-606060;
-}
-
-.style-2 {
-  @apply font-sf-pro-display text-18 font-normal leading-32 text-f5f5f5;
-}
-
-.style-3 {
-  @apply font-sf-pro-display text-20 font-bold leading-32 text-f5f5f5;
-}
-
-.style-4 {
-  @apply font-font-sf-pro-display-black-italic text-60 font-bold leading-64 text-131313;
-}
-
-.style-5 {
-  @apply font-sf-pro-display text-16 font-medium leading-24 text-131313;
-}
-
-/* Estilo para el scrollbar global */
-/* Para Firefox */
-html,
-body {
-  scrollbar-width: thin; /* Controla el ancho del scrollbar */
-  scrollbar-color: #4f5b62 transparent; /* Color del thumb en gris azulado oscuro y track transparente */
-}
-
-/* Para navegadores basados en Webkit (Chrome, Safari, etc.) */
-::-webkit-scrollbar {
-  width: 8px; /* Ancho del scrollbar */
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #4f5b62; /* Gris azulado oscuro para el thumb */
-  border-radius: 10px; /* Bordes redondeados */
-}
-
-::-webkit-scrollbar-track {
-  background-color: transparent; /* Fondo transparente del track */
-  border-radius: 10px; /* Bordes redondeados */
-}
-
-/* Asegúrate de agregar la propiedad de border-radius al contenedor si es necesario */
-::-webkit-scrollbar-corner {
-  background-color: transparent;
-  border-radius: 10px; /* Redondeo en la esquina del scrollbar */
-}
-
-html {
-  font-family: 'SF Pro Display', sans-serif;
-  font-size: clamp(12px, 2vw, 18px);
-  color: #131313;
-}
 /* Font face para SF Pro Display */
 @font-face {
   font-family: 'SF Pro Display';
@@ -87,38 +30,68 @@ html {
   font-style: normal;
 }
 
-
+/* Configuración global */
 :root {
-  font-family: var(--unnamed-font-family-sf-pro-display), Inter, system-ui,
-    Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--unnamed-font-family-sf-pro-display), Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* @font-face {
-  font-family: 'SF Pro Display';
-  src: url('./fonts/SFProDisplay-Regular.woff2') format('woff2'),
-    url('./fonts/SFProDisplay-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-} */
-
-/* Para Playfair Display (desde Google Fonts) */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
-
-html {
-  font-family: var(--unnamed-font-family-sf-pro-display);
-  /* Por defecto, SF Pro Display */
+html, body {
+  font-family: 'SF Pro Display', sans-serif;
+  font-size: clamp(12px, 2vw, 18px);
   color: #131313;
+  scrollbar-width: thin; /* Firefox: ancho del scrollbar */
+  scrollbar-color: #4f5b62 transparent; /* Colores del scrollbar en Firefox */
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Scrollbar personalizado (Webkit: Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4f5b62;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+/* Estilos personalizados */
+.style-1 {
+  @apply font-sf-pro-display text-24 font-medium leading-24 text-606060;
+}
+
+.style-2 {
+  @apply font-sf-pro-display text-18 font-normal leading-32 text-f5f5f5;
+}
+
+.style-3 {
+  @apply font-sf-pro-display text-20 font-bold leading-32 text-f5f5f5;
+}
+
+.style-4 {
+  @apply font-font-sf-pro-display-black-italic text-60 font-bold leading-64 text-131313;
+}
+
+.style-5 {
+  @apply font-sf-pro-display text-16 font-medium leading-24 text-131313;
 }

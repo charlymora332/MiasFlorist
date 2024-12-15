@@ -31,7 +31,7 @@ function Resenia({ img, imgAlt, titulo, texto, autor, id }) {
         }`}
       >
         {/* Contenedor de texto */}
-        <div className='flex h-max w-full flex-col px-4 text-center'>
+        <div className='flex h-max w-full mt-6 flex-col px-4 text-center'>
           {/* Título con truncado */}
           <h4 className='style-4 truncate !text-xl mv:!text-2xl'>{titulo}</h4>
 
