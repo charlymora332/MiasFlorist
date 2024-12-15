@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick'; // Importar la librería
-import "slick-carousel/slick/slick.css"; // Importar los estilos base de slick-carousel
-import "slick-carousel/slick/slick-theme.css"; // Importar los estilos del tema
+import 'slick-carousel/slick/slick.css'; // Importar los estilos base de slick-carousel
+import 'slick-carousel/slick/slick-theme.css'; // Importar los estilos del tema
 
 const Hola = () => {
   const settings = {
@@ -20,22 +20,22 @@ const Hola = () => {
       <Slider {...settings}>
         <div>
           <img
-            src="https://via.placeholder.com/800x400?text=Slide+1"
-            alt="Slide 1"
+            src='https://via.placeholder.com/800x400?text=Slide+1'
+            alt='Slide 1'
             style={{ width: '100%', borderRadius: '10px' }}
           />
         </div>
         <div>
           <img
-            src="https://via.placeholder.com/800x400?text=Slide+2"
-            alt="Slide 2"
+            src='https://via.placeholder.com/800x400?text=Slide+2'
+            alt='Slide 2'
             style={{ width: '100%', borderRadius: '10px' }}
           />
         </div>
         <div>
           <img
-            src="https://via.placeholder.com/800x400?text=Slide+3"
-            alt="Slide 3"
+            src='https://via.placeholder.com/800x400?text=Slide+3'
+            alt='Slide 3'
             style={{ width: '100%', borderRadius: '10px' }}
           />
         </div>

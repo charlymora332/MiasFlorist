@@ -1,20 +1,20 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
-import Slider from "react-slick"; // Importa la librería de slick-carousel
-import "slick-carousel/slick/slick.css"; // Estilos base de slick-carousel
-import "slick-carousel/slick/slick-theme.css"; // Estilos del tema de slick-carousel
-import sliderImages from "../assets/SliderPrincipal/imagenes"; // Importa las imágenes
-import iconoNext from "../assets/SliderPrincipal/iconoNext.png";
-import iconoBack from "../assets/SliderPrincipal/iconoBack.png";
-import Resenia from "./Resenia";
-import reseniasArray from "../assets/productos/resenias";
-import BtnOrange from "./BtnOrange";
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import Slider from 'react-slick'; // Importa la librería de slick-carousel
+import 'slick-carousel/slick/slick.css'; // Estilos base de slick-carousel
+import 'slick-carousel/slick/slick-theme.css'; // Estilos del tema de slick-carousel
+import sliderImages from '../assets/SliderPrincipal/imagenes'; // Importa las imágenes
+import iconoNext from '../assets/SliderPrincipal/iconoNext.png';
+import iconoBack from '../assets/SliderPrincipal/iconoBack.png';
+import Resenia from './Resenia';
+import reseniasArray from '../assets/productos/resenias';
+import BtnOrange from './BtnOrange';
 // Flecha personalizada para siguiente
 const FlechaSiguiente = ({ onClick }) => {
   return (
     <img
       src={iconoNext}
-      alt="→"
-      className=" aspect-square rounded-full cursor-pointer h-full w-max mv:hidden"
+      alt='→'
+      className='aspect-square h-full w-max cursor-pointer rounded-full mv:hidden'
       onClick={onClick}
     />
   );
@@ -25,8 +25,8 @@ const FlechaAnterior = ({ onClick }) => {
   return (
     <img
       src={iconoBack}
-      alt="←"
-      className="  aspect-square  rounded-full cursor-pointer h-full w-max mv:hidden"
+      alt='←'
+      className='aspect-square h-full w-max cursor-pointer rounded-full mv:hidden'
       onClick={onClick}
     />
   );
@@ -45,7 +45,7 @@ const SliderResenias = () => {
     const productosEnPantalla = Math.floor(width / productoAncho); // Calcular cuántos productos caben en pantalla
 
     // Si la pantalla es más pequeña que 800px, cambiar el carrusel a modo horizontal
-    if (productosEnPantalla > 800) {
+    if (width > 800) {
       setCantidadProductosV(Math.min(Math.max(productosEnPantalla, 1), 5));
       setIsVertical(false); // Establecer que el carrusel es horizontal
     } else {
@@ -60,11 +60,11 @@ const SliderResenias = () => {
     pantallaRedimensionada();
 
     // Agregar evento de redimensionamiento para cambiar el diseño dinámicamente
-    window.addEventListener("resize", pantallaRedimensionada);
+    window.addEventListener('resize', pantallaRedimensionada);
 
     return () => {
       // Limpiar el evento cuando el componente se desmonte
-      window.removeEventListener("resize", pantallaRedimensionada);
+      window.removeEventListener('resize', pantallaRedimensionada);
     };
   }, [pantallaRedimensionada]);
 
@@ -90,26 +90,26 @@ const SliderResenias = () => {
   };
 
   return (
-    <div className="relative w-full h-full mx-auto text-center ">
-      <div className="flex flex-row justify-center items-center relative mb-8 ">
-        <div className="style-4 !text-3xl flex flex-col space-x-2  justify-center items-center sm:flex-row">
-          <span className=" flex flex-col sm:flex-row">⭐⭐⭐⭐⭐</span>{" "}
-          <h3 className="">
-            <span className="!text-f7527a">(5-Star)</span>Reviews on Google my
+    <div className='relative mx-auto h-full w-full text-center'>
+      <div className='relative mb-8 flex flex-row items-center justify-center'>
+        <div className='style-4 flex flex-col items-center justify-center space-x-2 !text-3xl sm:flex-row'>
+          <span className='flex flex-col sm:flex-row'>⭐⭐⭐⭐⭐</span>{' '}
+          <h3 className=''>
+            <span className='!text-f7527a'>(5-Star)</span>Reviews on Google my
           </h3>
         </div>
-        <div className=" h-12 flex justify-center space-x-2 bg-f7527a rounded-full absolute right-20  top-1/2 -translate-y-1/2 w-max py-2 px-2 mv:hidden">
+        <div className='absolute right-20 top-1/2 flex h-12 w-max -translate-y-1/2 justify-center space-x-2 rounded-full bg-f7527a px-2 py-2 mv:hidden'>
           <FlechaAnterior onClick={() => sliderRef.current.slickPrev()} />
           <FlechaSiguiente onClick={() => sliderRef.current.slickNext()} />
         </div>
       </div>
 
-      <div className="flex flex-row w-full justify-center items-center">
-        <div className="w-1/12 p-6 aspect-square ">
+      <div className='flex w-full flex-row items-center justify-center'>
+        <div className='aspect-square w-1/12 p-6'>
           <FlechaAnterior onClick={() => sliderRef.current.slickPrev()} />
         </div>
 
-        <div className="w-10/12">
+        <div className='w-10/12'>
           <Slider {...configuracionSlider} ref={sliderRef}>
             {reseniasArray.map((resenia, index) => (
               <div>
@@ -125,28 +125,28 @@ const SliderResenias = () => {
             ))}
           </Slider>
         </div>
-        <div className="w-1/12 p-6 aspect-square">
+        <div className='aspect-square w-1/12 p-6'>
           <FlechaSiguiente onClick={() => sliderRef.current.slickNext()} />
         </div>
       </div>
 
-      <div className="  flex flex-col justify-center items-center">
-        <div className=" bottom-0 right-20  z-30 flex flex-row my-6 mv:hidden">
-          <ul className=" relative mx-auto flex flex-row gap-2">
+      <div className='flex flex-col items-center justify-center'>
+        <div className='bottom-0 right-20 z-30 my-6 flex flex-row mv:hidden'>
+          <ul className='relative mx-auto flex flex-row gap-2'>
             {reseniasArray.map((_, index) => (
               <li
                 key={index}
                 onClick={() => handleDotClick(index)} // Cambia la imagen al hacer clic
-                className={`w-2 h-2  rounded-full cursor-pointer transition-all duration-300 ease-in-out ${
-                  index === activeIndex ? "bg-f7527a scale-150" : "bg-[#E4E4E4]"
+                className={`h-2 w-2 cursor-pointer rounded-full transition-all duration-300 ease-in-out ${
+                  index === activeIndex ? 'scale-150 bg-f7527a' : 'bg-[#E4E4E4]'
                 }`}
               />
             ))}
           </ul>
         </div>
 
-        <div className="w-56 mv:pt-12 mv:w-11/12">
-          <BtnOrange texto={"Write a review"} />
+        <div className='w-56 mv:w-11/12 mv:pt-12'>
+          <BtnOrange texto={'Write a review'} />
         </div>
 
         {/* Contenedor para las flechas personalizadas */}

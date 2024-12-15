@@ -1,9 +1,21 @@
-import React from 'react'
+import React from 'react';
 
-function BtnOrange({texto}) {
+/**
+ * Componente de botón estilizado con fondo naranja.
+ * Recibe un prop 'texto' que se muestra dentro del botón.
+ * El botón tiene un fondo de color naranja y un texto en color oscuro.
+ * Utiliza clases de Tailwind CSS para el estilo, con soporte para tamaños responsivos.
+ * 
+ * @param {string} texto - El texto que se muestra dentro del botón.
+ * @returns {JSX.Element} - Un botón estilizado con el texto pasado como prop.
+ */
+
+function BtnOrange({ texto }) {
   return (
-    <h1 className='bg-ffaa01 cursor-pointer rounded-full w-full px-12 py-3 font-bold text-unnamed-color-131313 text-center text-131313 mv:!text-2xl mv:py-4'>{texto}</h1>
-  )
+    <h1 className='text-unnamed-color-131313 w-full cursor-pointer rounded-full bg-ffaa01 px-12 py-3 text-center font-bold text-131313 mv:py-4 mv:!text-2xl'>
+      {texto}
+    </h1>
+  );
 }
 
-export default BtnOrange
+export default BtnOrange;

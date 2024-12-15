@@ -1,117 +1,123 @@
-import React, { useState, useEffect } from "react";
-import Productos from "./Productos";
-import productos2 from "../assets/productos/BF773-11KL_Rsd.png";
-import productos from "../assets/productos/productos";
-import Slider from "react-slick"; // Importa la librería de slick-carousel
-import "slick-carousel/slick/slick.css"; // Estilos base de slick-carousel
-import "slick-carousel/slick/slick-theme.css"; // Estilos del tema de slick-carousel
-import iconoNext from "../assets/SliderPrincipal/iconoNext.png";
-import iconoBack from "../assets/SliderPrincipal/iconoBack.png";
+import React, { useState, useEffect } from 'react';
 
+import productos from '../assets/productos/productos';
+import Slider from 'react-slick'; // Importa la librería de slick-carousel
+import 'slick-carousel/slick/slick.css'; // Estilos base de slick-carousel
+import 'slick-carousel/slick/slick-theme.css'; // Estilos del tema de slick-carousel
+import iconoNext from '../assets/SliderPrincipal/iconoNext.png';
+import iconoBack from '../assets/SliderPrincipal/iconoBack.png';
+
+// Componente para la flecha siguiente del slider
 const FlechaSiguiente = ({ onClick }) => {
   return (
     <img
-      src={iconoNext}
-      alt="→"
-      className="  rounded-full cursor-pointer h-8 w-max mv:hidden"
-      onClick={onClick}
+      src={iconoNext} // Imagen de la flecha siguiente
+      alt='→' // Texto alternativo
+      className='h-8 w-max cursor-pointer rounded-full mv:hidden' // Clases de estilo
+      onClick={onClick} // Acción al hacer clic
     />
   );
 };
 
-// Flecha personalizada para anterior
+// Componente para la flecha anterior del slider
 const FlechaAnterior = ({ onClick }) => {
   return (
     <img
-      src={iconoBack}
-      alt="←"
-      className="    rounded-full cursor-pointer h-8 w-max mv:hidden"
-      onClick={onClick}
+      src={iconoBack} // Imagen de la flecha anterior
+      alt='←' // Texto alternativo
+      className='h-8 w-max cursor-pointer rounded-full mv:hidden' // Clases de estilo
+      onClick={onClick} // Acción al hacer clic
     />
   );
 };
 
-function SliderProductos({ children, anchoEle = '310',  }) {
-  const [activeIndex, setActiveIndex] = useState(0); // Estado para el índice activo
-  const sliderRef = React.useRef(null); // Referencia al slider
+function SliderProductos({ children, anchoEle = '310' }) {
+  // Estado que guarda el índice del producto activo en el slider
+  const [activeIndex, setActiveIndex] = useState(0);
+  // Referencia al slider para poder controlarlo programáticamente
+  const sliderRef = React.useRef(null);
+  // Estado que guarda la cantidad de productos que deben mostrarse
   const [cantidadProductos, setCantidadProductos] = useState(1);
 
-  // Función para ajustar cantidadProductos dependiendo del ancho de la pantalla
+  // Función que se ejecuta al cambiar el tamaño de la ventana
   const pantallaRedimensionada = () => {
-    const width = window.innerWidth;
+    const width = window.innerWidth; // Obtiene el ancho de la ventana
     const productoAncho = anchoEle; // Ancho fijo de cada producto
 
-    // Calculamos cuántos productos caben en la pantalla
+    // Calcula cuántos productos caben en la pantalla
     const productosEnPantalla = Math.floor(width / productoAncho);
 
-    // Aseguramos que siempre se muestre al menos 1 producto
-    // También evitamos que se muestren demasiados productos (como 10 en pantallas grandes)
+    // Asegura que siempre se muestren al menos 1 producto y un máximo de 5 productos
     setCantidadProductos(Math.min(Math.max(productosEnPantalla, 2), 5));
   };
-  // Usar useEffect para escuchar cambios en el tamaño de la ventana
-  useEffect(() => {
-    pantallaRedimensionada();
-    window.addEventListener("resize", pantallaRedimensionada);
 
+  // useEffect para escuchar los cambios en el tamaño de la ventana y ajustar la cantidad de productos
+  useEffect(() => {
+    pantallaRedimensionada(); // Ejecuta la función al cargar el componente
+    window.addEventListener('resize', pantallaRedimensionada); // Escucha el evento de redimensionamiento
+
+    // Elimina el evento cuando el componente se desmonta
     return () => {
-      window.removeEventListener("resize", pantallaRedimensionada);
+      window.removeEventListener('resize', pantallaRedimensionada);
     };
-  }, []);
+  }, []); // Se ejecuta una vez al montar el componente
 
   // Configuración del slider
   const configuracionSlider = {
-    dots: false, // Deshabilitamos los puntos automáticos de slick
-    infinite: true,
-    speed: 500,
-    slidesToShow: cantidadProductos,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    nextArrow: <FlechaSiguiente />,
-    prevArrow: <FlechaAnterior />,
-    arrows: false,
+    dots: false, // Deshabilita los puntos de navegación automáticos
+    infinite: true, // Habilita el carrusel infinito
+    speed: 500, // Velocidad de transición entre diapositivas
+    slidesToShow: cantidadProductos, // Número de productos a mostrar
+    slidesToScroll: 1, // Número de productos a desplazar por cada acción
+    autoplay: true, // Habilita la reproducción automática
+    autoplaySpeed: 2000, // Velocidad de la reproducción automática
+    nextArrow: <FlechaSiguiente />, // Flecha para avanzar
+    prevArrow: <FlechaAnterior />, // Flecha para retroceder
+    arrows: false, // Deshabilita las flechas predeterminadas de Slick
     beforeChange: (current, next) => {
-      setActiveIndex(next); // Cambiar el índice activo antes de cada cambio
+      setActiveIndex(next); // Cambia el índice activo antes de cada transición
     },
   };
 
+  // Función para cambiar el producto mostrado al hacer clic en los puntos de navegación
   const handleDotClick = (index) => {
-    // Cambiar el slider al índice seleccionado al hacer clic en un punto
-    sliderRef.current.slickGoTo(index);
-    setActiveIndex(index); // Actualizar el índice activo
+    sliderRef.current.slickGoTo(index); // Cambia al índice seleccionado
+    setActiveIndex(index); // Actualiza el índice activo
   };
 
   return (
     <div>
-      {/* <Productos id={} img={} imgAlt={} nombre={}  dolar={} cent={} precioNormal={} /> */}
-      <div className="relative w-full h-max mx-auto text-center pb-10 ">
+      {/* Contenedor del slider de productos */}
+      <div className='relative mx-auto h-max w-full pb-10 text-center'>
         <div>
-          <div className="w-full items-center flex flex-row justify-around">
+          <div className='flex w-full flex-row items-center justify-around'>
+            {/* Botón para retroceder */}
             <FlechaAnterior onClick={() => sliderRef.current.slickPrev()} />
-            <div className="w-11/12 ">
+            <div className='w-11/12'>
+              {/* Slider de productos */}
               <Slider {...configuracionSlider} ref={sliderRef}>
-                {children}
+                {children} {/* Los productos son pasados como hijos */}
               </Slider>
             </div>
+            {/* Botón para avanzar */}
             <FlechaSiguiente onClick={() => sliderRef.current.slickNext()} />
-            </div>
-            <div className=" mx-auto relative mb-10">
-              <ul className="  left-1/2 -translate-x-1/2 flex flex-row w-max my-8 gap-2  absolute z-50 ">
-                {productos.map((_, index) => (
-                  <li
-                    key={index}
-                    onClick={() => handleDotClick(index)} // Cambia la imagen al hacer clic
-                    className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ease-in-out  shadow-[0_0_20px_2px_rgba(0,0,0,0.2)] ${
-                      index === activeIndex ? "bg-f7527a " : "bg-[#E4E4E4]"
-                    }`}
-                  />
-                ))}
-              </ul>
-            </div>
-         
+          </div>
+          <div className='relative mx-auto mb-10'>
+            {/* Puntos de navegación (indicadores) */}
+            <ul className='absolute left-1/2 z-50 my-8 flex w-max -translate-x-1/2 flex-row gap-2'>
+              {children.map((_, index) => (
+                <li
+                  key={index} // Clave única para cada punto
+                  onClick={() => handleDotClick(index)} // Cambia a la diapositiva correspondiente
+                  className={`h-3 w-3 cursor-pointer rounded-full shadow-[0_0_20px_2px_rgba(0,0,0,0.2)] transition-all duration-300 ease-in-out ${
+                    index === activeIndex ? 'bg-f7527a' : 'bg-[#E4E4E4]'
+                  }`}
+                />
+              ))}
+            </ul>
+          </div>
         </div>
-
-        <div className="absolute right-4 bottom-20"></div>
+        <div className='absolute bottom-20 right-4'></div>
       </div>
     </div>
   );

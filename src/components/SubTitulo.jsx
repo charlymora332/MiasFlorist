@@ -1,59 +1,58 @@
-import React from "react";
+/**
+ * Componente SubTitulo
+ * Este componente renderiza un subtítulo con círculos decorativos a ambos lados del texto.
+ * Los círculos están rotados y posicionados de manera que dan un efecto visual de diseño único.
+ * El texto principal tiene dos partes: una antes y otra después de un texto en negrita.
+ * 
+ * @param {Object} props - Propiedades que recibe el componente.
+ * @param {string} props.antes - Texto que aparece antes de la parte en negrita.
+ * @param {string} props.despues - Texto que aparece después de la parte en negrita.
+ * @param {string} [props.estilosPrinc=''] - Clases de estilo para el contenedor principal.
+ * @param {string} [props.estilosCirculos=''] - Clases de estilo para personalizar los círculos decorativos.
+ * @param {string} [props.estilosLetra=''] - Clases de estilo para personalizar la fuente del texto.
+ * 
+ * @returns {JSX.Element} - Componente de subtítulo con círculos decorativos renderizado.
+ */
+import React from 'react';
 
-function SubTitulo({ antes, despues, estilosPrinc, estilosCirculos, estilosLetra }) {
+function SubTitulo({
+  antes,            // Texto que aparece antes de la parte en negrita
+  despues,          // Texto que aparece después de la parte en negrita
+  estilosPrinc,     // Clases de estilo para el contenedor principal
+  estilosCirculos,  // Clases de estilo para personalizar los círculos decorativos
+  estilosLetra,     // Clases de estilo para personalizar el texto
+}) {
   return (
-    <div className={`relative flex flex-row text-3xl font-semibold text-center w-full justify-center gap-1 ${estilosPrinc}`}>
-      {/* Contenedor principal con rotación */}
-      <div className="inline-block w-6   h-auto transform rotate-[16deg]">
+    <div
+      className={`relative flex w-full flex-row justify-center gap-1 text-center text-3xl font-semibold ${estilosPrinc}`}
+    >
+      {/* Contenedor principal con rotación para los círculos a la izquierda */}
+      <div className='inline-block h-auto w-6 rotate-[16deg] transform'>
         {/* Bolitas a la izquierda */}
-        <span className={`absolute right-0 bottom-3.5 w-1.5 h-1.5 bg-f7527a rounded-full ${estilosCirculos}`}></span>
-        <span className={`absolute right-3 bottom-3.5 w-1.5 h-1.5 bg-f7527a rounded-full ${estilosCirculos}`}></span>
+        <span
+          className={`absolute bottom-3.5 right-0 h-1.5 w-1.5 rounded-full bg-f7527a ${estilosCirculos}`}
+        ></span>
+        <span
+          className={`absolute bottom-3.5 right-3 h-1.5 w-1.5 rounded-full bg-f7527a ${estilosCirculos}`}
+        ></span>
       </div>
 
-      {/* Título central */}
+      {/* Título central: contiene el texto antes y después en negrita */}
       <h4 className={`style-5 !text-3xl ${estilosLetra}`}>
         {antes} <b>{despues}</b>
       </h4>
 
-      {/* Bolitas a la derecha y contenedor rotado */}
-      <div className="inline-block w-6 h-auto transform -rotate-[16deg]">
-        <span className={`absolute left-0 bottom-3.5 w-1.5 h-1.5 bg-f7527a rounded-full ${estilosCirculos}`}></span>
-        <span className={`absolute left-3 bottom-3.5 w-1.5 h-1.5 bg-f7527a rounded-full ${estilosCirculos}`}></span>
+      {/* Bolitas a la derecha y contenedor rotado en sentido contrario */}
+      <div className='inline-block h-auto w-6 -rotate-[16deg] transform'>
+        <span
+          className={`absolute bottom-3.5 left-0 h-1.5 w-1.5 rounded-full bg-f7527a ${estilosCirculos}`}
+        ></span>
+        <span
+          className={`absolute bottom-3.5 left-3 h-1.5 w-1.5 rounded-full bg-f7527a ${estilosCirculos}`}
+        ></span>
       </div>
     </div>
   );
 }
 
 export default SubTitulo;
-
-
-
-// import React from "react";
-
-// function SubTitulo({ antes, despues,estilosPrinc, estilosCirculos }) {
-//   return (
-//     <div className="relative flex flex-row text-3xl font-semibold text-center w-full justify-center gap-12">
-//       {/* Contenedor principal con rotación */}
-//       <div className=" inline-block w-12 h-auto  transform rotate-[16deg]">
-//         {/* Bolitas a la izquierda */}
-//         <span className=" absolute -right-1 bottom-2 w-2 h-2 bg-f7527a rounded-full"></span>
-//         <span className=" absolute right-2 bottom-2 w-2 h-2 bg-f7527a rounded-full"></span>
-//         </div>
-        
-//         {/* Título central */}
-//         <h4 className="style-5 !text-3xl">
-//           {antes} <b>{despues}</b>
-//         </h4>
-//         <div className=" inline-block w-12 h-auto  transform -rotate-[16deg]">
-//         {/* Bolitas a la izquierda */}
-//         <span className=" absolute -left-1 bottom-2 w-2 h-2 bg-f7527a rounded-full"></span>
-//         <span className=" absolute left-2 bottom-2 w-2 h-2 bg-f7527a rounded-full"></span>
-//         </div>
-//         {/* Bolitas a la derecha */}
-        
-      
-//     </div>
-//   );
-// }
-
-// export default SubTitulo;

@@ -1,114 +1,124 @@
-import React, { useState } from "react";
-import ValidatedInput from "./Input";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import Input from './Input'; // Componente reutilizable de Input
+import { Link } from 'react-router-dom'; // Para el enlace a términos y condiciones
 
 function FormContact() {
+  // Estado para almacenar los datos del formulario
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
   });
 
-  // Manejar los cambios en los campos del formulario
+  // Función para manejar los cambios en los campos del formulario
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
-      ...formData,
-      [name]: value,
+      ...formData, // Mantener los datos previos
+      [name]: value, // Actualizar el valor del campo modificado
     });
   };
 
-  // Manejar el envío del formulario
+  // Función para manejar el envío del formulario
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
+    e.preventDefault(); // Evita que el formulario se recargue
+
+    // Mostrar los datos del formulario en una alerta (esto debería ser reemplazado por una acción real como enviar los datos a un servidor)
+    alert(`
+      Name: ${formData.name}
+      Email: ${formData.email}
+      Phone: ${formData.phone}
+      Message: ${formData.message}
+    `);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4  w-full h-max">
-      {/* Nombre (mínimo 3, máximo 100) */}
-      <ValidatedInput
-        type="text"
-        name="name"
+    <form onSubmit={handleSubmit} className='h-max w-full space-y-4'>
+      {/* Campo para el nombre, con validación de longitud mínima y máxima */}
+      <Input
+        type='text'
+        name='name'
         value={formData.name}
         onChange={handleChange}
         required
         minLength={3}
         maxLength={100}
-        label="Name"
+        label='Name'
       />
-      <div className="grid xl:grid-cols-2 grid-cols-1">
-        {/* Correo electrónico */}
-        <ValidatedInput
-          type="email"
-          name="email"
+      
+      {/* Sección para el correo y teléfono, utilizando un grid para diseño responsivo */}
+      <div className='grid grid-cols-1 xl:grid-cols-2'>
+        {/* Campo para el correo electrónico */}
+        <Input
+          type='email'
+          name='email'
           value={formData.email}
           onChange={handleChange}
           required
-          label="Email"
+          label='Email'
         />
 
-        {/* Teléfono (mínimo 6) */}
-        <ValidatedInput
-          type="number"
-          name="phone"
+        {/* Campo para el teléfono, con validación de longitud mínima */}
+        <Input
+          type='number'
+          name='phone'
           value={formData.phone}
           onChange={handleChange}
           required
           minLength={8}
-          label="Phone"
+          label='Phone'
         />
       </div>
 
-      {/* Mensaje (máximo 600 caracteres) */}
-      <div className="flex flex-col">
-        <label htmlFor="message" className="text-xl font-bold pl-5">
+      {/* Campo para el mensaje, con validación de longitud mínima y máxima */}
+      <div className='flex flex-col'>
+        <label htmlFor='message' className='pl-5 text-xl font-bold'>
           Message
         </label>
         <textarea
-          name="message"
-          id="message"
+          name='message'
+          id='message'
           value={formData.message}
           onChange={handleChange}
           required
           minLength={10}
           maxLength={600}
-          autoComplete="message"        
-
-          className="border-[2.5px] border-[#707070] rounded-3xl p-2 px-4 focus:outline-none w-full mt-2 resize-none"
-          rows="4"
-          style={{ resize: "none", overflowY: "auto" }} // Agrega scroll vertical si el texto excede el área
+          autoComplete='message'
+          className='mt-2 w-full resize-none rounded-3xl border-[2.5px] border-[#707070] p-2 px-4 focus:outline-none'
+          rows='4'
+          style={{ resize: 'none', overflowY: 'auto' }} // Permite el scroll vertical si el mensaje es largo
         />
-        {/* Mostrar mensaje de error si el mensaje es más largo de lo permitido */}
+        
+        {/* Mostrar mensajes de error si no se cumple con los requisitos de longitud */}
         {formData.message.length > 600 && (
-          <span className="text-red-500 text-sm mt-1">
+          <span className='mt-1 text-sm text-red-500'>
             Message cannot exceed 600 characters
           </span>
         )}
-        {/* Validación para longitud mínima del mensaje */}
         {formData.message.length > 0 && formData.message.length < 10 && (
-          <span className="text-red-500 text-sm mt-1">
+          <span className='mt-1 text-sm text-red-500'>
             Message must be at least 10 characters long
           </span>
         )}
       </div>
-      <h5 className="font-thin text-sm tv:text-xl">
-        By clicking "Send" you agree to our{" "}
-        <Link to="" aria-label="Terms and Conditions">
+
+      {/* Enlace a los términos y condiciones */}
+      <h5 className='text-sm font-thin tv:text-xl'>
+        By clicking "Send" you agree to our{' '}
+        <Link to='' aria-label='Terms and Conditions'>
           Terms and Conditions and Privacy Policy,
         </Link>
       </h5>
+
       {/* Botón de envío */}
-      <div className="mx-auto w-10/12 h-max">
-         <button
-        type="submit"
-        className="bg-ffaa01 cursor-pointer rounded-full w-full  px-12  font-bold text-center text-131313 !text-2xl py-3  "
-      >
-    
-     
-        Contact Us
-      </button>
+      <div className='mx-auto h-max w-10/12'>
+        <button
+          type='submit'
+          className='w-full cursor-pointer rounded-full bg-ffaa01 px-12 py-3 text-center !text-2xl font-bold text-131313'
+        >
+          Contact Us
+        </button>
       </div>
     </form>
   );

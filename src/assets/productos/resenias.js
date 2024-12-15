@@ -1,3 +1,6 @@
+// Este es un array de objetos que contiene información sobre diferentes productos.
+// Este array se recorre en un slider para mostrar los productos en una interfaz gráfica.
+
 import img1 from './asdiafjiesjfs.png';
 import img2 from './HOL23_TheMulberry_DL_ARG_334_Web-(1).png';
 import img3 from './ramo-flores-hermosas-espacio-copia.png';
@@ -14,7 +17,8 @@ const resenia = [
     id: 1,
     img: img1,
     imgAlt: 'BEAUTIFUL',
-    texto: 'Very good service..and help when delivering. They had to wait a few minutes and they waited without any problems.',
+    texto:
+      'Very good service..and help when delivering. They had to wait a few minutes and they waited without any problems.',
     autor: 'Andrea Castaiio',
     titulo: 'BEAUTIFUL',
   },
@@ -22,7 +26,8 @@ const resenia = [
     id: 2,
     img: img2,
     imgAlt: 'EXCELLENT',
-    texto: 'Delivery on time and the quality of the bouquet is spectacular... a week has passed and it is impeccable.',
+    texto:
+      'Delivery on time and the quality of the bouquet is spectacular... a week has passed and it is impeccable.',
     autor: 'Jonh Cena',
     titulo: 'EXCELLENT',
   },
@@ -30,7 +35,8 @@ const resenia = [
     id: 3,
     img: img3,
     imgAlt: 'BEAUTIFUL',
-    texto: 'The order arrived on time and in shape, the flowers lasted more than 1 week.',
+    texto:
+      'The order arrived on time and in shape, the flowers lasted more than 1 week.',
     autor: 'Mariana Castaiieda',
     titulo: 'BEAUTIFUL',
   },
@@ -89,7 +95,7 @@ const resenia = [
     texto: 'Great service and the flowers lasted for days.',
     autor: 'Oliver Harris',
     titulo: 'STUNNING',
-  }
+  },
 ];
 
 export default resenia;

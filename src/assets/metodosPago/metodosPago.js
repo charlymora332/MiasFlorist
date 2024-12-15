@@ -8,41 +8,41 @@ import dinersClub from './diners-club-international-2.png';
 import jcb from './jcb-emblem-logo.png';
 import westernUnion from './western-union-2.png';
 
-// Crear el array con las imágenes y sus alt
+
 const metodosPago = [
   {
     img: visa,
-    alt: 'Visa'
+    alt: 'Visa',
   },
   {
     img: mastercard,
-    alt: 'Mastercard'
+    alt: 'Mastercard',
   },
   {
     img: americanExpress,
-    alt: 'American Express'
+    alt: 'American Express',
   },
   {
     img: paypal,
-    alt: 'PayPal'
+    alt: 'PayPal',
   },
   {
     img: discover,
-    alt: 'Discover'
+    alt: 'Discover',
   },
   {
     img: dinersClub,
-    alt: 'Diners Club International'
+    alt: 'Diners Club International',
   },
   {
     img: jcb,
-    alt: 'JCB'
+    alt: 'JCB',
   },
   {
     img: westernUnion,
-    alt: 'Western Union'
-  }
+    alt: 'Western Union',
+  },
 ];
 
-// Exportación del array de imágenes con su alt
+
 export default metodosPago;

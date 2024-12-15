@@ -1,16 +1,42 @@
-import React from "react";
+import React from 'react';
 
-function Tarjetas({ img, imgAlt = "tarjet", titulo, texto }) {
+/**
+ * Componente Tarjetas
+ * Este componente renderiza una tarjeta con una imagen, un título y un texto.
+ * La imagen se centra dentro de la tarjeta, mientras que el título y el texto se
+ * posicionan en el lado derecho de la tarjeta con un efecto visual.
+ * 
+ * @param {Object} props - Propiedades que recibe el componente.
+ * @param {string} props.img - URL de la imagen a mostrar en la tarjeta.
+ * @param {string} [props.imgAlt='tarjet'] - Texto alternativo para la imagen.
+ * @param {string} props.titulo - Título que se mostrará en la tarjeta.
+ * @param {string} props.texto - Texto que se mostrará debajo del título.
+ * 
+ * @returns {JSX.Element} - Componente de tarjeta renderizado.
+ */
+function Tarjetas({ img, imgAlt = 'tarjet', titulo, texto }) {
   return (
-    <div className="relative h-auto w-full aspect-[4/3] ">
-      
-   
-      <img src={img} alt={imgAlt} className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-10 w-auto mx-auto h-full object-contain" />
-   
-     
-      <div className="absolute w-1/2  top-1/2 -translate-y-1/2 right-0 z-50 flex flex-col items-center justify-center h-full">
-        <h4 className= " -skew-x-12 font-ultra-bold text-f7527a  text-2xl">{titulo}</h4>
-        <h6 className="  style-1 !text-base">{texto}</h6>
+    // Contenedor principal de la tarjeta con relación de aspecto de 4:3
+    <div className='relative aspect-[4/3] h-auto w-full'>
+      {/* Imagen de la tarjeta, centrada con clases de Tailwind */}
+      <img
+        src={img} // URL de la imagen
+        alt={imgAlt} // Texto alternativo de la imagen
+        className='absolute left-1/2 top-1/2 z-10 mx-auto h-full w-auto -translate-x-1/2 -translate-y-1/2 object-contain'
+       
+      />
+
+      {/* Contenedor para el texto (título y descripción) */}
+      <div className='absolute right-0 top-1/2 z-50 flex h-full w-1/2 -translate-y-1/2 flex-col items-center justify-center'>
+        {/* Título con un efecto de inclinación */}
+        <h4 className='-skew-x-12 text-2xl font-ultra-bold text-f7527a'>
+          {titulo} {/* Título de la tarjeta */}
+        </h4>
+
+        {/* Texto con un estilo personalizado */}
+        <h6 className='style-1 !text-base'>
+          {texto} {/* Descripción o texto debajo del título */}
+        </h6>
       </div>
     </div>
   );
